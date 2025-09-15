@@ -1,0 +1,147 @@
+# Contributing to DeskForge-Simulator
+
+This project simulates **real help desk workflows**: tickets → troubleshooting → knowledge base (KB) → labs.  
+All skill levels are welcome, whether you are just starting out or have years of IT support experience.  
+
+The following is a set of **guidelines** for contributing to DeskForge-Simulator. These are mostly *guidelines*, not strict rules. Use your best judgment, and feel free to propose improvements through pull requests.
+
+
+
+## Table of Contents
+
+- [Code of Conduct](#code-of-conduct)  
+- [I Have a Question!](#i-have-a-question)  
+- [Troubleshooting Philosophy](#troubleshooting-philosophy)  
+- [What Should I Know Before I Get Started?](#what-should-i-know-before-i-get-started)  
+- [DeskForge Modules](#deskforge-modules)  
+- [How Can I Contribute?](#how-can-i-contribute)  
+  - [Submitting Tickets](#submitting-tickets)  
+  - [Creating KB Articles](#creating-kb-articles)  
+
+
+
+
+## Code of Conduct
+
+This project and everyone participating in it is governed by the **DeskForge Code of Conduct**.  
+By contributing, you agree to help create a welcoming, respectful, and professional environment.  
+
+Please report unacceptable behavior via GitHub issues or by contacting the maintainers directly.
+
+
+
+## I Have a Question!
+
+Note: Please don’t file a GitHub issue just to ask a question. You’ll get faster results by using these resources:
+
+### Community & Peer Support
+- [Discussions](https://github.com/<org>/DeskForge-Simulator/discussions) – Ask project-specific questions or suggest improvements.  
+- [r/helpdesk on Reddit](https://reddit.com/r/helpdesk) – Real-world troubleshooting stories and Q&A.  
+- [Spiceworks Community](https://community.spiceworks.com/) – Active IT pros sharing tips and best practices.  
+- [Microsoft TechNet Forums](https://docs.microsoft.com/en-us/answers/products/) – OS, networking, and enterprise troubleshooting.  
+- [Stack Overflow](https://stackoverflow.com/) – For programming- or script-related questions.
+
+## Troubleshooting Philosophy
+
+This project follows principles drawn from established service desk guides and training resources. When writing tickets, KB articles, or labs, contributors should align with these standards:
+
+| Principle | Description | Reference |
+|-----------|-------------|-----------|
+| **Clear communication** | Use precise, reproducible steps and plain language in tickets and KB articles. | Blokdyk, 2020 |
+| **User focus & empathy** | Capture not only technical details but also the user’s experience and frustration. | Blokdyk, 2020; Art of Service, 2021 |
+| **Structured troubleshooting** | Follow the CompTIA A+ six-step diagnostic model:<br>1. Identify the problem<br>2. Establish a theory of probable cause<br>3. Test the theory<br>4. Establish a plan and implement the solution<br>5. Verify functionality<br>6. Document findings, actions, and outcomes | O’Shea, 2025 |
+| **Escalation & scope** | Recognize when an issue exceeds Tier 1 capability and document the escalation path. | Art of Service, 2021 |
+| **Consistency** | Use standard templates so tickets, KB articles, and labs have a uniform style. | Blokdyk, 2020 |
+| **Metrics & improvement** | Track resolution times, recurring incidents, and root causes to support service improvement. | Art of Service, 2021 |
+| **Knowledge management** | Transform solved incidents into KB articles or lab exercises to prevent repeat tickets. | Blokdyk, 2020; Art of Service, 2021 |
+
+### References
+- *Help Desk: A Complete Guide – 2020 Edition* (Gerardus Blokdyk, ISBN 978-1867309383)  
+- *CompTIA A+ Complete Practice Tests, 4th Edition* (Audrey O’Shea, 2025, Print ISBN 978-1394330331; eText ISBN 978-1394330348)  
+- *IT Service Desk: A Complete Guide, 2021 Edition* (The Art of Service, ISBN 978-1867437223)  
+
+
+# What Should I Know Before I Get Started?
+
+If you’re new to contributing on GitHub, start with the official guide below. It covers forking, branching, committing, and submitting pull requests:
+
+- [Contributing to a Project on GitHub](https://docs.github.com/en/get-started/exploring-projects-on-github/contributing-to-a-project)
+
+Before contributing, it helps to understand both the technical and
+interpersonal foundations of help desk work: strong communication, 
+basic diagnostics (OS, hardware, network), the ability to prioritize, 
+and a mindset for learning from each ticket.
+
+You don’t need to be an expert to start — many top contributions come 
+from ability to follow templates, ask clarifying questions, research 
+solutions, and communicate clearly with non-technical users.
+
+Expect to iterate: early tickets will teach you more than any book. 
+Learning comes from hands-on troubleshooting, documenting steps, and 
+reviewing feedback.
+
+## DeskForge Modules
+
+*DeskForge-Simulator* is modular, designed to mirror real IT service desk workflows.
+
+### Core Modules
+
+| Module | Path | Purpose |
+|--------|------|---------|
+| **Tickets** | `/tickets/` | User-reported issues: real incidents, training exercises, or fictional scenarios. |
+| **Knowledge Base (KB)** | `/kb/` | Documentation of resolutions, fixes, and lessons learned. |
+| **Labs** | `/labs/` | Hands-on simulations and walkthroughs for practicing troubleshooting. |
+| **Scenarios** | /scenarios/      | End-to-end help desk workflows combining tickets, troubleshooting, and resolution. |
+
+A contribution usually flows like this:  
+**Ticket → Resolution → KB → Lab.**
+
+Each module builds on the previous one:
+- **Tickets** capture the problem.  
+- **KB articles** formalize the solution.  
+- **Labs** provide a training environment to reproduce and solve the issue.  
+- **Scenarios** connect everything into a real-world workflow. 
+
+
+## How Can I Contribute?
+
+### Submitting Tickets
+
+Tickets describe problems users face. They can be **real-world issues**, **training exercises**, or **fictional but realistic scenarios**.
+
+Use Markdown with this template:
+
+```markdown
+# Ticket: Short title
+**Category:** Hardware | Software | Network | Account | Other  
+**Problem:** One-line description  
+**Symptoms:** What the user sees  
+**Environment:** OS / system / version  
+**Resolution:** (If known, give steps. If unknown, write "TBD")
+```
+
+### Creating KB Articles
+
+Every solved ticket should ideally produce a **Knowledge Base (KB) article**.  
+
+```markdown 
+# KB: Fixing Printer Spooler Service Crashes
+**Related Ticket:** /tickets/field/printer-not-responding.md  
+**Environment:** Windows 10 / Windows Server 2019  
+
+## Resolution Steps
+1. Open `services.msc`  
+2. Locate **Print Spooler**, right-click → Restart  
+3. Verify the printer queue clears  
+4. Test printing a document  
+
+## Notes
+- Escalate if spooler keeps failing after 3 restarts.  
+- Capture event logs for Tier 2 analysis.
+```
+
+
+
+
+
+
