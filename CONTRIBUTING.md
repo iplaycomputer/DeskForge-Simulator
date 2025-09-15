@@ -107,7 +107,9 @@ Each module builds on the previous one:
 
 ### Submitting Tickets
 
-Tickets describe problems users face. They can be **real-world issues**, **training exercises**, or **fictional but realistic scenarios**.
+Tickets describe problems users face. They can be **real-world issues**, **training exercises**, or **fictional but realistic scenarios**.  
+
+For inspiration and sample scenarios, see [COMMON_TICKET_EXAMPLES.md](COMMON_TICKET_EXAMPLES.md).  
 
 Use Markdown with this template:
 
@@ -140,8 +142,36 @@ Every solved ticket should ideally produce a **Knowledge Base (KB) article**.
 - Capture event logs for Tier 2 analysis.
 ```
 
+### Creating Labs  
+Labs live in `/labs/` and are interactive walkthroughs of KB articles. Purpose: let contributors practice the fix in a safe, repeatable way.  
 
+**Template:**  
 
+```markdown 
+# Lab: [Short Title]  
+**Related KB:** /kb/[filename].md  
+**Environment:** OS / version / system  
+
+## Objectives  
+- State the skill or troubleshooting goal.  
+- Example: "Learn to restart and verify the Windows Print Spooler service."  
+
+## Prerequisites  
+- Any required setup (VM, software, permissions).  
+
+## Steps  
+1. Restate the KB resolution steps as explicit lab instructions.  
+2. Add prompts for the learner to execute commands or verify outcomes.  
+3. Use fenced code blocks for commands, e.g. `[insert command here]`.  
+4. Insert checkpoints, e.g. "Confirm the printer queue is empty."
+
+## Verification  
+- Define what success looks like.  
+- Example: "A test document prints without error."
+
+## Cleanup  
+- Optional: steps to revert or reset the environment. 
+```
 
 
 
