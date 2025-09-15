@@ -58,7 +58,9 @@ This project follows principles drawn from established service desk guides and t
 ### References
 - *Help Desk: A Complete Guide – 2020 Edition* (Gerardus Blokdyk, ISBN 978-1867309383)  
 - *CompTIA A+ Complete Practice Tests, 4th Edition* (Audrey O’Shea, 2025, Print ISBN 978-1394330331; eText ISBN 978-1394330348)  
-- *IT Service Desk: A Complete Guide, 2021 Edition* (The Art of Service, ISBN 978-1867437223)  
+- *IT Service Desk: A Complete Guide, 2021 Edition* (The Art of Service, ISBN 978-1867437223) 
+- [Atlassian: What Is ITIL? Best Practices for ITSM.](https://www.atlassian.com/itsm/itil)  
+  
 
 
 # What Should I Know Before I Get Started?
@@ -110,67 +112,118 @@ Each module builds on the previous one:
 Tickets describe problems users face. They can be **real-world issues**, **training exercises**, or **fictional but realistic scenarios**.  
 
 For inspiration and sample scenarios, see [COMMON_TICKET_EXAMPLES.md](COMMON_TICKET_EXAMPLES.md).  
+For contributor roles, see [ROLES.md](ROLES.MD)  
+For project metrics and feedback loops, see [METRICS.MD](METRICS.MD) 
 
 Use Markdown with this template:
 
 ```markdown
-# Ticket: Short title
+# Ticket: [Short title]
+
 **Category:** Hardware | Software | Network | Account | Other  
+**Priority:** Low | Medium | High | Critical  
+**Impact:** Single user | Department | Organization-wide  
+**Urgency:** Low (no workflow impact) | Medium (work slowed) | High (work blocked)  
+
 **Problem:** One-line description  
 **Symptoms:** What the user sees  
 **Environment:** OS / system / version  
-**Resolution:** (If known, give steps. If unknown, write "TBD")
+
+**Troubleshooting Steps Taken:**  
+- [ ] Step 1  
+- [ ] Step 2  
+
+**Resolution:**  
+(If known, give steps. If unknown, write "TBD")  
+
+**Escalation Path:**  
+- [ ] Tier 1 complete  
+- [ ] Escalated to Tier 2  
+- [ ] Escalated to Tier 3  
 ```
 
 ### Creating KB Articles
 
-Every solved ticket should ideally produce a **Knowledge Base (KB) article**.  
+Every solved ticket should ideally produce a **Knowledge Base (KB) article**.Each KB article must link to its 
+originating ticket. Articles should be reviewed periodically to ensure accuracy and retired when obsolete.
 
 ```markdown 
-# KB: Fixing Printer Spooler Service Crashes
-**Related Ticket:** /tickets/field/printer-not-responding.md  
-**Environment:** Windows 10 / Windows Server 2019  
+# KB: [Short Title]
+
+**Related Ticket(s):** /tickets/[filename].md  
+**Category:** Hardware | Software | Network | Account | Other  
+**Environment:** OS / system / version  
+
+**Owner:** [Contributor name or team]  
+**Last Reviewed:** [YYYY-MM-DD]  
+**Next Review Due:** [YYYY-MM-DD]  
 
 ## Resolution Steps
-1. Open `services.msc`  
-2. Locate **Print Spooler**, right-click → Restart  
-3. Verify the printer queue clears  
-4. Test printing a document  
+1. [Step 1]  
+2. [Step 2]  
+3. [Step 3]  
+4. Verification: [What success looks like]  
 
-## Notes
-- Escalate if spooler keeps failing after 3 restarts.  
-- Capture event logs for Tier 2 analysis.
+## Troubleshooting Notes
+- [Escalation guidance]  
+- [Known limitations or variations]  
+- [Logs, screenshots, or command outputs to capture]  
+
+## Linked Incidents
+- /tickets/[incident1].md  
+- /tickets/[incident2].md  
+
+## Metrics / References
+- Mean Time to Resolution (MTTR): [Optional note if tracked]  
+- Recurrence: [Yes/No]  
+- External reference: [Vendor docs, URL, or manual]
 ```
+Contributors who create KBs are responsible for updating them if related tickets recur or environments change.
 
 ### Creating Labs  
-Labs live in `/labs/` and are interactive walkthroughs of KB articles. Purpose: let contributors practice the fix in a safe, repeatable way.  
+Labs live in `/labs/` and are interactive walkthroughs of KB articles. Purpose: let contributors practice the fix in a safe, repeatable way. Labs should include checkpoints and verification steps that mirror KPIs (e.g., first-contact resolution, mean time to resolution).
 
 **Template:**  
 
 ```markdown 
 # Lab: [Short Title]  
 **Related KB:** /kb/[filename].md  
+**Category:** Hardware | Software | Network | Account | Other  
 **Environment:** OS / version / system  
+
+**Owner:** [Contributor name or team]  
+**Last Reviewed:** [YYYY-MM-DD]  
+**Next Review Due:** [YYYY-MM-DD]  
 
 ## Objectives  
 - State the skill or troubleshooting goal.  
 - Example: "Learn to restart and verify the Windows Print Spooler service."  
 
 ## Prerequisites  
-- Any required setup (VM, software, permissions).  
+- Required setup (VM, software, permissions, network access).  
+- Accounts or credentials needed.  
 
 ## Steps  
 1. Restate the KB resolution steps as explicit lab instructions.  
 2. Add prompts for the learner to execute commands or verify outcomes.  
-3. Use fenced code blocks for commands, e.g. `[insert command here]`.  
-4. Insert checkpoints, e.g. "Confirm the printer queue is empty."
+3. Use fenced code blocks for commands.
 
 ## Verification  
 - Define what success looks like.  
-- Example: "A test document prints without error."
+- Example: "A test document prints without error."  
+- Include acceptance criteria (pass/fail conditions).  
+
+## Escalation Context  
+- What to do if the learner cannot complete the lab (e.g., escalate to Tier 2).  
+
+## Metrics / Feedback  
+- Estimated time to complete.  
+- Common errors observed.  
+- Links to related incidents or scenarios.  
 
 ## Cleanup  
-- Optional: steps to revert or reset the environment. 
+- Optional: steps to revert or reset the environment.  
+- Return system to baseline for next learner.  
 ```
 
 
