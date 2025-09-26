@@ -4,19 +4,36 @@ Welcome to **DeskForge-Simulator**! This project simulates real-world helpdesk w
 
 This guide provides **guidelines** (not strict rules) for contributing to DeskForge-Simulator. Use your best judgment and suggest improvements via pull requests.
 
-**Note**: Setting up a local osTicket instance is **optional** but recommended to learn how ticketing systems work in real-world IT jobs (see [lamp-osticket-setup.md](lamp-osticket-setup.md)). You can contribute by writing Markdown files directly or submitting real-world tech support issues via GitHub Issues. Public ticket submissions are not yet enabled. In the future, a central osTicket instance may be launched, likely with the client portal open for public submissions and the admin/staff panel restricted to project maintainers.
+**Note**: Setting up a local osTicket instance is **optional** but recommended to learn how ticketing systems work in real-world IT jobs (see [lamp-osticket-setup.md](lamp-osticket-setup.md)). You can contribute by writing Markdown files directly or sharing real-world tech support issues, KB drafts, or labs via GitHub Discussions.
 
 ## What You’ll Need
 - A GitHub account to submit contributions (sign up at [github.com](https://github.com)).
 - A text editor for writing Markdown files in `/tickets/`, `/kb/`, and `/labs/` (we provide templates!).
-- **Optional**: A local osTicket setup to test tickets and KB articles (see [lamp-osticket-setup.md](lamp-osticket-setup.md) for installing osTicket v1.18.1 in a VirtualBox VM with Ubuntu 24.04 Desktop; client portal at `http://<vm-ip>/osticket/`, admin/staff panel at `http://<vm-ip>/osticket/scp`). Find your VM’s IP with `ip addr show`.
+  
+- **Optional**: A local osTicket setup to test tickets and KB articles (see [lamp-osticket-setup.md](lamp-osticket-setup.md) for installing osTicket v1.18.1 in a VirtualBox VM with Ubuntu 24.04 Desktop; client portal at `http://<vm-ip>/osticket/`, admin/staff panel at `http://<vm-ip>/osticket/scp`). Replace `<vm-ip>` with your VM’s IP (use `ip addr show` in the terminal). Keep this private—do not share personal IPs in public contributions.
+  
 - For labs: A lightweight Linux VM or sandbox (e.g., Ubuntu 24.04 Desktop or Docker container) to test troubleshooting steps, which can be the same VM as osTicket or a separate one.
 - Curiosity and a willingness to learn—no IT expertise required!
+
+## Contribution Workflow
+To keep contributions organized, use the following channels:
+- **GitHub Discussions ([https://github.com/iplaycomputer/DeskForge-Simulator/discussions](https://github.com/iplaycomputer/DeskForge-Simulator/discussions))**:
+  - **Tickets**: Share real-world tech support issues, fictional scenarios, or training exercises in the `Tickets` category. Convert these into Markdown files for `/tickets/`.
+  - **Knowledge Base**: Share KB drafts or solution ideas in the `Knowledge Base` category. Convert these into Markdown files for `/kb/`.
+  - **Labs**: Share lab ideas or troubleshooting exercises in the `Labs` category. Convert these into Markdown files for `/labs/`.
+  - **Scenarios & General**: Discuss end-to-end workflows (Ticket → KB → Lab) or general Q&A in the `Scenarios & General` category.
+- **GitHub Issues ([https://github.com/iplaycomputer/DeskForge-Simulator/issues](https://github.com/iplaycomputer/DeskForge-Simulator/issues))**:
+  - Report project-related problems (e.g., bugs, broken setup instructions in `lamp-osticket-setup.md`, missing dependencies).
+- **Pull Requests**: Submit your final Markdown files (`/tickets/`, `/kb/`, `/labs/`, `/scenarios/`) as pull requests for review.
+
+**For Maintainers**: Ensure Discussions has the categories: `Announcements`, `Tickets`, `Knowledge Base`, `Labs`, `Scenarios & General`, and `Polls`. Use `Announcements` for updates and `Polls` for community input.
+
+This keeps Discussions for collaboration and learning, Issues for project fixes, and the repo clean with structured contributions.
 
 ## What This Guide Does
 This guide will help you:
 - Write tickets, KB articles, and labs in Markdown for the DeskForge-Simulator repo.
-- Optionally submit tickets via GitHub Issues or test them in a local osTicket instance.
+- Share tickets, KB drafts, or labs via GitHub Discussions or test them in a local osTicket instance.
 - Test labs in a Linux VM or sandbox environment without needing osTicket.
 - Follow a professional troubleshooting approach based on industry standards.
 - Use community resources to ask questions and get help.
@@ -31,6 +48,7 @@ This guide will help you:
    - [Submitting Tickets](#submitting-tickets)
    - [Creating KB Articles](#creating-kb-articles)
    - [Creating Labs](#creating-labs)
+7. [Roadmap Note](#roadmap-note)
 
 ## Code of Conduct
 We want DeskForge-Simulator to be a welcoming, respectful, and professional community. By contributing, you agree to follow the **DeskForge Code of Conduct**, which emphasizes:
@@ -41,10 +59,7 @@ We want DeskForge-Simulator to be a welcoming, respectful, and professional comm
 If you encounter unacceptable behavior, report it via GitHub issues or by contacting the maintainers directly.
 
 ## I Have a Question!
-Don’t file a GitHub issue for general questions—you’ll get faster answers from these resources:
-
-### Community & Peer Support
-- **[GitHub Discussions](https://github.com/iplaycomputer/DeskForge-Simulator/discussions)**: Ask project-specific questions or suggest improvements.
+Don’t file a GitHub issue for general questions—you’ll get faster answers in the `Scenarios & General` category of [GitHub Discussions](https://github.com/iplaycomputer/DeskForge-Simulator/discussions). Other resources:
 - **[r/helpdesk on Reddit](https://reddit.com/r/helpdesk)**: Share and learn from real-world troubleshooting stories.
 - **[Spiceworks Community](https://community.spiceworks.com/)**: Connect with IT pros for tips and best practices.
 - **[Microsoft TechNet Forums](https://docs.microsoft.com/en-us/answers/products/)**: Get help with OS, networking, or enterprise issues.
@@ -77,43 +92,37 @@ DeskForge-Simulator mimics a real IT helpdesk, allowing you to contribute ticket
   - Clear communication with non-technical users.
   - Basic troubleshooting (e.g., OS, hardware, network issues).
   - Following templates and asking questions to clarify issues.
-- **osTicket Setup (Optional)**: For a hands-on ticketing system experience, set up a local osTicket instance using [lamp-osticket-setup.md](lamp-osticket-setup.md) (client portal at `http://<vm-ip>/osticket/`, admin/staff panel at `http://<vm-ip>/osticket/scp`). Find your VM’s IP with `ip addr show` in the terminal.
+- **osTicket Setup (Optional)**: For a hands-on ticketing system experience, set up a local osTicket instance using [lamp-osticket-setup.md](lamp-osticket-setup.md) (client portal at `http://<vm-ip>/osticket/`, admin/staff panel at `http://<vm-ip>/osticket/scp`). Replace `<vm-ip>` with your VM’s IP (use `ip addr show` in the terminal). Keep this private—do not share personal IPs in public contributions.
 - **Lab Testing**: Test labs in a local Linux VM or sandbox (e.g., Ubuntu 24.04 Desktop or Docker container), which can be the same VM as osTicket or a separate one. osTicket is not required for labs.
 - **Learning by Doing**: The best way to learn is to write tickets, test solutions, and get feedback. Start small and improve with each contribution!
-
-**Future Note**: Public ticket submissions are not yet enabled. If a central osTicket instance is launched, it will likely allow public users to submit tickets via the client portal only, with the admin/staff panel restricted to maintainers.
 
 ## DeskForge Modules
 DeskForge-Simulator is built around four modules that mirror real helpdesk workflows:
 
 | Module | Path | Purpose |
 |--------|------|---------|
-| **Tickets** | `/tickets/` | User-reported issues: real incidents, training exercises, or fictional scenarios, documented in Markdown and optionally tested in a local osTicket instance or submitted via GitHub Issues. |
-| **Knowledge Base (KB)** | `/kb/` | Documentation of solutions and lessons learned, linked to tickets, written in Markdown and optionally tested in a local osTicket instance. |
-| **Labs** | `/labs/` | Hands-on troubleshooting exercises, tested in a Linux VM or sandbox, written in Markdown. |
+| **Tickets** | `/tickets/` | User-reported issues: real incidents, training exercises, or fictional scenarios, documented in Markdown and shared via GitHub Discussions or tested in a local osTicket instance. |
+| **Knowledge Base (KB)** | `/kb/` | Documentation of solutions and lessons learned, linked to tickets, written in Markdown and shared via GitHub Discussions or tested in a local osTicket instance. |
+| **Labs** | `/labs/` | Hands-on troubleshooting exercises, tested in a Linux VM or sandbox, written in Markdown and shared via GitHub Discussions. |
 | **Scenarios** | `/scenarios/` | End-to-end workflows combining tickets, KB articles, and labs, written in Markdown. |
 
 ### How Modules Work Together
 Contributions flow like this: **Ticket → Resolution → KB → Lab → Scenario**.
-- **Tickets**: Write a Markdown file in `/tickets/` describing a problem (e.g., “Printer not working”) or submit it via GitHub Issues. Optionally, test it in your local osTicket instance’s client portal.
-- **KB Articles**: Write a Markdown file in `/kb/` formalizing the solution (e.g., “How to restart the Print Spooler”) and optionally test it in your local osTicket instance’s admin/staff panel.
-- **Labs**: Write a Markdown file in `/labs/` for a hands-on exercise, tested in a Linux VM or sandbox.
+- **Tickets**: Share a ticket in GitHub Discussions (`Tickets` category) or write a Markdown file in `/tickets/` describing a problem (e.g., “Printer not working”). Optionally, test it in your local osTicket instance’s client portal (`http://<vm-ip>/osticket/`). Replace `<vm-ip>` with your VM’s IP (use `ip addr show` in the terminal). Keep this private—do not share personal IPs in public contributions.
+- **KB Articles**: Share a KB draft in GitHub Discussions (`Knowledge Base` category) or write a Markdown file in `/kb/` formalizing the solution (e.g., “How to restart the Print Spooler”). Optionally, test it in your local osTicket instance’s admin/staff panel (`http://<vm-ip>/osticket/scp`).
+- **Labs**: Share a lab idea in GitHub Discussions (`Labs` category) or write a Markdown file in `/labs/` for a hands-on exercise, tested in a Linux VM or sandbox.
 - **Scenarios**: Combine tickets, KB articles, and labs into a complete workflow in `/scenarios/`.
 
-You can test contributions in a local osTicket instance (optional):
-- **Client Portal** (e.g., `http://<vm-ip>/osticket/`): Submit tickets as a user.
-- **Admin/Staff Panel** (e.g., `http://<vm-ip>/osticket/scp`): Manage tickets, configure help topics, or draft KB articles (use credentials set during [lamp-osticket-setup.md](lamp-osticket-setup.md)).
-
 ## How Can I Contribute?
-You can contribute by writing tickets, KB articles, or labs in Markdown, optionally testing tickets/KB articles in a local osTicket instance or submitting tickets via GitHub Issues. Below are the details for each.
+You can contribute by writing tickets, KB articles, or labs in Markdown, sharing them via GitHub Discussions, or testing tickets/KB articles in a local osTicket instance. Below are the details for each.
 
 ### Submitting Tickets
-Tickets represent user-reported problems (real, training, or fictional). You can write them directly in Markdown for `/tickets/`, submit them via GitHub Issues, or test them in a local osTicket instance for realism.
+Tickets represent user-reported problems (real, training, or fictional). You can share them in GitHub Discussions, write them directly in Markdown for `/tickets/`, or test them in a local osTicket instance for realism.
 
-- **Option 1: Direct Markdown**: Write a ticket in the Markdown template below and save it in `/tickets/`.
-- **Option 2: GitHub Issues**: Open a GitHub Issue at [https://github.com/iplaycomputer/DeskForge-Simulator/issues](https://github.com/iplaycomputer/DeskForge-Simulator/issues) with details of a real-world tech support issue (e.g., “My laptop won’t connect to Wi-Fi”). Then, convert the issue details into the Markdown template and save in `/tickets/`.
-- **Option 3: Local osTicket (Recommended for Learning)**: Access your local client portal (e.g., `http://<vm-ip>/osticket/`), click “Open a New Ticket,” select a help topic (e.g., “Hardware”), and submit. Configure help topics in the admin panel (e.g., `http://<vm-ip>/osticket/scp`, Admin Panel → Manage → Help Topics) to match ticket categories. Copy the ticket details into the Markdown template.
-- **Example**: For a “Unable to print” issue, either submit a GitHub Issue with details, write `/tickets/printer-failure.md` directly, or test it in your local osTicket instance and document it in `/tickets/`.
+- **Option 1: GitHub Discussions**: Post a ticket in the `Tickets` category at [https://github.com/iplaycomputer/DeskForge-Simulator/discussions](https://github.com/iplaycomputer/DeskForge-Simulator/discussions) with details of a real-world tech support issue (e.g., “My laptop won’t connect to Wi-Fi”). Convert the details into the Markdown template and save in `/tickets/`.
+- **Option 2: Direct Markdown**: Write a ticket in the Markdown template below and save it in `/tickets/`.
+- **Option 3: Local osTicket (Recommended for Learning)**: Access your local client portal (e.g., `http://<vm-ip>/osticket/`), click “Open a New Ticket,” select a help topic (e.g., “Hardware”), and submit. Configure help topics in the admin panel (e.g., `http://<vm-ip>/osticket/scp`, Admin Panel → Manage → Help Topics). Replace `<vm-ip>` with your VM’s IP (use `ip addr show` in the terminal). Keep this private—do not share personal IPs in public contributions. Copy the ticket details into the Markdown template.
+- **Example**: For a “Unable to print” issue, post in GitHub Discussions (`Tickets` category) with details, write `/tickets/printer-failure.md` directly, or test it in your local osTicket instance and document it in `/tickets/`.
 - **Inspiration**: See [COMMON_TICKET_EXAMPLES.md](COMMON_TICKET_EXAMPLES.md) for sample scenarios.
 - **Roles**: Check [ROLES.md](ROLES.md) for contributor roles (e.g., Tier 1, Tier 2).
 - **Metrics**: Review [METRICS.md](METRICS.md) for tracking resolution times and feedback.
@@ -145,13 +154,13 @@ Tickets represent user-reported problems (real, training, or fictional). You can
 ```
 
 **Tips**:
-- Use GitHub Issues to share real-world tech support issues you’ve encountered.
+- Use GitHub Discussions (`Tickets` category) to share real-world tech support issues you’ve encountered.
 - Test tickets in your local osTicket instance (if set up) to simulate a real helpdesk.
 - Follow the CompTIA A+ six-step model (see “Troubleshooting Philosophy”).
 - Submit your ticket as a pull request in the `/tickets/` folder.
 
 ### Creating KB Articles
-KB articles document solutions from solved tickets. Write them in Markdown for `/kb/` and optionally test them in your local osTicket instance’s admin/staff panel.
+KB articles document solutions from solved tickets. Share them in GitHub Discussions (`Knowledge Base` category) or write them in Markdown for `/kb/`. Optionally, test them in your local osTicket instance’s admin/staff panel.
 
 **KB Template** (create in `/kb/` as `[filename].md`):
 ```markdown
@@ -186,12 +195,13 @@ KB articles document solutions from solved tickets. Write them in Markdown for `
 ```
 
 **Tips**:
-- Use your local osTicket admin/staff panel (e.g., `http://<vm-ip>/osticket/scp`) to draft KB articles, if set up.
+- Share KB drafts in GitHub Discussions (`Knowledge Base` category) for feedback.
+- Use your local osTicket admin/staff panel (e.g., `http://<vm-ip>/osticket/scp`) to draft KB articles, if set up. Replace `<vm-ip>` with your VM’s IP (use `ip addr show` in the terminal). Keep this private—do not share personal IPs in public contributions.
 - Ensure steps are clear, reproducible, and tested.
 - Submit as a pull request in the `/kb/` folder.
 
 ### Creating Labs
-Labs are standalone troubleshooting exercises in `/labs/`, tested in a Linux VM or sandbox (e.g., Ubuntu 24.04 Desktop or Docker container), not requiring osTicket. They let contributors practice steps from KB articles.
+Labs are standalone troubleshooting exercises in `/labs/`, tested in a Linux VM or sandbox (e.g., Ubuntu 24.04 Desktop or Docker container), not requiring osTicket. Share them in GitHub Discussions (`Labs` category) or write them in Markdown.
 
 **Testing Labs**: Use a local Linux VM or sandbox to simulate issues (e.g., stop a service with `sudo systemctl stop <service>`). Follow [lamp-osticket-setup.md](lamp-osticket-setup.md) to set up a VM, or use a Docker container for simplicity.
 
@@ -218,9 +228,7 @@ Labs are standalone troubleshooting exercises in `/labs/`, tested in a Linux VM 
 1. [Instruction, e.g., "Simulate a failure: sudo systemctl stop <service>"]  
 2. [Instruction, e.g., "Check service status: sudo systemctl status <service>"]  
 3. [Command, e.g.,]
-   ```bash
-   sudo systemctl restart <service>
-   ```
+   `sudo systemctl restart <service>`
 
 ## Verification
 - [Expected outcome, e.g., "Run lpstat -p; confirm printer is enabled"]  
@@ -237,9 +245,14 @@ Labs are standalone troubleshooting exercises in `/labs/`, tested in a Linux VM 
 
 ## Cleanup
 - [Reset steps, e.g., "Restart service: sudo systemctl start <service>"]  
-- [Ensure readiness, e.g., "Verify service status with systemctl status <service>"]  
-  
-**Tips**:
+- [Ensure readiness, e.g., "Verify service status with systemctl status <service>"]
+
+## Tips:
+- Share lab ideas in GitHub Discussions (`Labs` category) for feedback.
 - Test labs in a Linux VM or Docker container, not osTicket.
 - Include clear verification steps with specific commands or outputs.
 - Submit as a pull request in the `/labs/` folder.
+```
+
+## Roadmap Note
+Public ticket submissions are not yet enabled. If a central osTicket instance is launched, it will likely allow public users to submit tickets via the client portal only, with the admin/staff panel restricted to maintainers.
