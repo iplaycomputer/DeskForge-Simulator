@@ -247,12 +247,13 @@ Labs are standalone troubleshooting exercises in `/labs/`, tested in a Linux VM 
 - [Reset steps, e.g., "Restart service: sudo systemctl start <service>"]  
 - [Ensure readiness, e.g., "Verify service status with systemctl status <service>"]
 
-## Tips:
+```
+**Tips**:
 - Share lab ideas in GitHub Discussions (`Labs` category) for feedback.
 - Test labs in a Linux VM or Docker container, not osTicket.
 - Include clear verification steps with specific commands or outputs.
 - Submit as a pull request in the `/labs/` folder.
-```
+
 
 ## Roadmap Note
 Public ticket submissions are not yet enabled. If a central osTicket instance is launched, it will likely allow public users to submit tickets via the client portal only, with the admin/staff panel restricted to maintainers.
