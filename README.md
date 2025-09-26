@@ -53,11 +53,22 @@ Whether you’re completely new to IT, sharpening your troubleshooting skills, o
    git commit -m "Add sample printer ticket"
    git push origin main
    ```
-
 4. **Open a Pull Request** to share your contribution! 🎉
 
 👉 That’s it — you’ve added your first simulated helpdesk ticket.  
 Check out `CONTRIBUTING.md` if you want to go deeper (KB articles, labs, scenarios).
+
+### **Note on Real Troubleshooting**:
+
+You’re welcome to post **real tech support questions** (e.g., “my printer won’t connect” or “Windows update keeps failing”) in GitHub Discussions.  
+*This community will treat them as learning scenarios.*  
+
+However:  
+- This project is for **education only** — responses are not official IT support. This means no guarantees of fixes and we are not responsible for people's devices.
+- Please **do not share sensitive information** (personal IPs, passwords, or private configs).  
+- Use advice at your own discretion.  
+
+Think of it as a safe space to learn troubleshooting together, not a replacement for your workplace or vendor IT support.  
 
 ## 🚀 Documentation & osTicket
 
