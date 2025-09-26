@@ -1,230 +1,245 @@
-# Contributing to DeskForge-Simulator
+# Contributing to DeskForge-Simulator (Beginner-Friendly Guide)
 
-This project simulates **real help desk workflows**: tickets → troubleshooting → knowledge base (KB) → labs.  
-All skill levels are welcome, whether you are just starting out or have years of IT support experience.  
+Welcome to **DeskForge-Simulator**! This project simulates real-world helpdesk workflows, guiding you through creating tickets, troubleshooting issues, writing knowledge base (KB) articles, and building labs. Whether you’re new to IT or an experienced pro, we’re excited to have you contribute!
 
-The following is a set of **guidelines** for contributing to DeskForge-Simulator. These are mostly *guidelines*, not strict rules. Use your best judgment, and feel free to propose improvements through pull requests.
+This guide provides **guidelines** (not strict rules) for contributing to DeskForge-Simulator. Use your best judgment and suggest improvements via pull requests.
 
+**Note**: Setting up a local osTicket instance is **optional** but recommended to learn how ticketing systems work in real-world IT jobs (see [lamp-osticket-setup.md](lamp-osticket-setup.md)). You can contribute by writing Markdown files directly or submitting real-world tech support issues via GitHub Issues. Public ticket submissions are not yet enabled. In the future, a central osTicket instance may be launched, likely with the client portal open for public submissions and the admin/staff panel restricted to project maintainers.
 
+## What You’ll Need
+- A GitHub account to submit contributions (sign up at [github.com](https://github.com)).
+- A text editor for writing Markdown files in `/tickets/`, `/kb/`, and `/labs/` (we provide templates!).
+- **Optional**: A local osTicket setup to test tickets and KB articles (see [lamp-osticket-setup.md](lamp-osticket-setup.md) for installing osTicket v1.18.1 in a VirtualBox VM with Ubuntu 24.04 Desktop; client portal at `http://<vm-ip>/osticket/`, admin/staff panel at `http://<vm-ip>/osticket/scp`). Find your VM’s IP with `ip addr show`.
+- For labs: A lightweight Linux VM or sandbox (e.g., Ubuntu 24.04 Desktop or Docker container) to test troubleshooting steps, which can be the same VM as osTicket or a separate one.
+- Curiosity and a willingness to learn—no IT expertise required!
+
+## What This Guide Does
+This guide will help you:
+- Write tickets, KB articles, and labs in Markdown for the DeskForge-Simulator repo.
+- Optionally submit tickets via GitHub Issues or test them in a local osTicket instance.
+- Test labs in a Linux VM or sandbox environment without needing osTicket.
+- Follow a professional troubleshooting approach based on industry standards.
+- Use community resources to ask questions and get help.
 
 ## Table of Contents
-
-- [Code of Conduct](#code-of-conduct)  
-- [I Have a Question!](#i-have-a-question)  
-- [Troubleshooting Philosophy](#troubleshooting-philosophy)  
-- [What Should I Know Before I Get Started?](#what-should-i-know-before-i-get-started)  
-- [DeskForge Modules](#deskforge-modules)  
-- [How Can I Contribute?](#how-can-i-contribute)  
-  - [Submitting Tickets](#submitting-tickets)  
-  - [Creating KB Articles](#creating-kb-articles)  
-
-
-
+1. [Code of Conduct](#code-of-conduct)
+2. [I Have a Question!](#i-have-a-question)
+3. [Troubleshooting Philosophy](#troubleshooting-philosophy)
+4. [What Should I Know Before I Get Started?](#what-should-i-know-before-i-get-started)
+5. [DeskForge Modules](#deskforge-modules)
+6. [How Can I Contribute?](#how-can-i-contribute)
+   - [Submitting Tickets](#submitting-tickets)
+   - [Creating KB Articles](#creating-kb-articles)
+   - [Creating Labs](#creating-labs)
 
 ## Code of Conduct
+We want DeskForge-Simulator to be a welcoming, respectful, and professional community. By contributing, you agree to follow the **DeskForge Code of Conduct**, which emphasizes:
+- Respectful communication.
+- Collaboration and inclusivity.
+- Professional behavior.
 
-This project and everyone participating in it is governed by the **DeskForge Code of Conduct**.  
-By contributing, you agree to help create a welcoming, respectful, and professional environment.  
-
-Please report unacceptable behavior via GitHub issues or by contacting the maintainers directly.
-
-
+If you encounter unacceptable behavior, report it via GitHub issues or by contacting the maintainers directly.
 
 ## I Have a Question!
-
-Note: Please don’t file a GitHub issue just to ask a question. You’ll get faster results by using these resources:
+Don’t file a GitHub issue for general questions—you’ll get faster answers from these resources:
 
 ### Community & Peer Support
-- [Discussions](https://github.com/<org>/DeskForge-Simulator/discussions) – Ask project-specific questions or suggest improvements.  
-- [r/helpdesk on Reddit](https://reddit.com/r/helpdesk) – Real-world troubleshooting stories and Q&A.  
-- [Spiceworks Community](https://community.spiceworks.com/) – Active IT pros sharing tips and best practices.  
-- [Microsoft TechNet Forums](https://docs.microsoft.com/en-us/answers/products/) – OS, networking, and enterprise troubleshooting.  
-- [Stack Overflow](https://stackoverflow.com/) – For programming- or script-related questions.
+- **[GitHub Discussions](https://github.com/iplaycomputer/DeskForge-Simulator/discussions)**: Ask project-specific questions or suggest improvements.
+- **[r/helpdesk on Reddit](https://reddit.com/r/helpdesk)**: Share and learn from real-world troubleshooting stories.
+- **[Spiceworks Community](https://community.spiceworks.com/)**: Connect with IT pros for tips and best practices.
+- **[Microsoft TechNet Forums](https://docs.microsoft.com/en-us/answers/products/)**: Get help with OS, networking, or enterprise issues.
+- **[Stack Overflow](https://stackoverflow.com/)**: Ask programming or script-related questions.
 
 ## Troubleshooting Philosophy
-
-This project follows principles drawn from established service desk guides and training resources. When writing tickets, KB articles, or labs, contributors should align with these standards:
+DeskForge-Simulator follows industry-standard helpdesk practices to ensure contributions are clear, professional, and useful. When writing tickets, KB articles, or labs, align with these principles:
 
 | Principle | Description | Reference |
 |-----------|-------------|-----------|
-| **Clear communication** | Use precise, reproducible steps and plain language in tickets and KB articles. | Blokdyk, 2020 |
-| **User focus & empathy** | Capture not only technical details but also the user’s experience and frustration. | Blokdyk, 2020; Art of Service, 2021 |
-| **Structured troubleshooting** | Follow the CompTIA A+ six-step diagnostic model:<br>1. Identify the problem<br>2. Establish a theory of probable cause<br>3. Test the theory<br>4. Establish a plan and implement the solution<br>5. Verify functionality<br>6. Document findings, actions, and outcomes | O’Shea, 2025 |
-| **Escalation & scope** | Recognize when an issue exceeds Tier 1 capability and document the escalation path. | Art of Service, 2021 |
-| **Consistency** | Use standard templates so tickets, KB articles, and labs have a uniform style. | Blokdyk, 2020 |
-| **Metrics & improvement** | Track resolution times, recurring incidents, and root causes to support service improvement. | Art of Service, 2021 |
-| **Knowledge management** | Transform solved incidents into KB articles or lab exercises to prevent repeat tickets. | Blokdyk, 2020; Art of Service, 2021 |
+| **Clear communication** | Use simple, step-by-step instructions and plain language in tickets and KB articles. | Blokdyk, 2020 |
+| **User focus & empathy** | Include technical details and the user’s experience (e.g., what they see, how it affects them). | Blokdyk, 2020; Art of Service, 2021 |
+| **Structured troubleshooting** | Follow the CompTIA A+ six-step diagnostic model: <br>1. Identify the problem <br>2. Establish a theory of probable cause <br>3. Test the theory <br>4. Establish a plan and implement the solution <br>5. Verify functionality <br>6. Document findings, actions, and outcomes | O’Shea, 2025 |
+| **Escalation & scope** | Know when an issue needs higher-level support and document the escalation path. | Art of Service, 2021 |
+| **Consistency** | Use standard templates for tickets, KB articles, and labs to keep things uniform. | Blokdyk, 2020 |
+| **Metrics & improvement** | Track resolution times and root causes to improve the helpdesk process. | Art of Service, 2021 |
+| **Knowledge management** | Turn solved tickets into KB articles or labs to prevent repeat issues. | Blokdyk, 2020; Art of Service, 2021 |
 
 ### References
-- *Help Desk: A Complete Guide – 2020 Edition* (Gerardus Blokdyk, ISBN 978-1867309383)  
-- *CompTIA A+ Complete Practice Tests, 4th Edition* (Audrey O’Shea, 2025, Print ISBN 978-1394330331; eText ISBN 978-1394330348)  
-- *IT Service Desk: A Complete Guide, 2021 Edition* (The Art of Service, ISBN 978-1867437223) 
-- [Atlassian: What Is ITIL? Best Practices for ITSM.](https://www.atlassian.com/itsm/itil)  
-  
+- *Help Desk: A Complete Guide – 2020 Edition* (Gerardus Blokdyk, ISBN 978-1867309383)
+- *CompTIA A+ Complete Practice Tests, 4th Edition* (Audrey O’Shea, 2025, Print ISBN 978-1394330331; eText ISBN 978-1394330348)
+- *IT Service Desk: A Complete Guide, 2021 Edition* (The Art of Service, ISBN 978-1867437223)
+- [Atlassian: What Is ITIL? Best Practices for ITSM](https://www.atlassian.com/itsm)
 
+## What Should I Know Before I Get Started?
+DeskForge-Simulator mimics a real IT helpdesk, allowing you to contribute tickets, KB articles, and labs in Markdown. Testing tickets and KB articles in a local osTicket instance is optional but recommended to understand how ticketing systems work in real-world IT jobs. Here’s what you need to know:
 
-# What Should I Know Before I Get Started?
+- **GitHub Basics**: If you’re new to GitHub, check out [Contributing to a Project on GitHub](https://docs.github.com/en/get-started/exploring-projects-on-github/contributing-to-a-project) to learn about forking, branching, committing, and pull requests.
+- **Helpdesk Skills**: You don’t need to be an expert! Focus on:
+  - Clear communication with non-technical users.
+  - Basic troubleshooting (e.g., OS, hardware, network issues).
+  - Following templates and asking questions to clarify issues.
+- **osTicket Setup (Optional)**: For a hands-on ticketing system experience, set up a local osTicket instance using [lamp-osticket-setup.md](lamp-osticket-setup.md) (client portal at `http://<vm-ip>/osticket/`, admin/staff panel at `http://<vm-ip>/osticket/scp`). Find your VM’s IP with `ip addr show` in the terminal.
+- **Lab Testing**: Test labs in a local Linux VM or sandbox (e.g., Ubuntu 24.04 Desktop or Docker container), which can be the same VM as osTicket or a separate one. osTicket is not required for labs.
+- **Learning by Doing**: The best way to learn is to write tickets, test solutions, and get feedback. Start small and improve with each contribution!
 
-If you’re new to contributing on GitHub, start with the official guide below. It covers forking, branching, committing, and submitting pull requests:
-
-- [Contributing to a Project on GitHub](https://docs.github.com/en/get-started/exploring-projects-on-github/contributing-to-a-project)
-
-Before contributing, it helps to understand both the technical and
-interpersonal foundations of help desk work: strong communication, 
-basic diagnostics (OS, hardware, network), the ability to prioritize, 
-and a mindset for learning from each ticket.
-
-You don’t need to be an expert to start — many top contributions come 
-from ability to follow templates, ask clarifying questions, research 
-solutions, and communicate clearly with non-technical users.
-
-Expect to iterate: early tickets will teach you more than any book. 
-Learning comes from hands-on troubleshooting, documenting steps, and 
-reviewing feedback.
+**Future Note**: Public ticket submissions are not yet enabled. If a central osTicket instance is launched, it will likely allow public users to submit tickets via the client portal only, with the admin/staff panel restricted to maintainers.
 
 ## DeskForge Modules
-
-*DeskForge-Simulator* is modular, designed to mirror real IT service desk workflows.
-
-### Core Modules
+DeskForge-Simulator is built around four modules that mirror real helpdesk workflows:
 
 | Module | Path | Purpose |
 |--------|------|---------|
-| **Tickets** | `/tickets/` | User-reported issues: real incidents, training exercises, or fictional scenarios. |
-| **Knowledge Base (KB)** | `/kb/` | Documentation of resolutions, fixes, and lessons learned. |
-| **Labs** | `/labs/` | Hands-on simulations and walkthroughs for practicing troubleshooting. |
-| **Scenarios** | /scenarios/      | End-to-end help desk workflows combining tickets, troubleshooting, and resolution. |
+| **Tickets** | `/tickets/` | User-reported issues: real incidents, training exercises, or fictional scenarios, documented in Markdown and optionally tested in a local osTicket instance or submitted via GitHub Issues. |
+| **Knowledge Base (KB)** | `/kb/` | Documentation of solutions and lessons learned, linked to tickets, written in Markdown and optionally tested in a local osTicket instance. |
+| **Labs** | `/labs/` | Hands-on troubleshooting exercises, tested in a Linux VM or sandbox, written in Markdown. |
+| **Scenarios** | `/scenarios/` | End-to-end workflows combining tickets, KB articles, and labs, written in Markdown. |
 
-A contribution usually flows like this:  
-**Ticket → Resolution → KB → Lab.**
+### How Modules Work Together
+Contributions flow like this: **Ticket → Resolution → KB → Lab → Scenario**.
+- **Tickets**: Write a Markdown file in `/tickets/` describing a problem (e.g., “Printer not working”) or submit it via GitHub Issues. Optionally, test it in your local osTicket instance’s client portal.
+- **KB Articles**: Write a Markdown file in `/kb/` formalizing the solution (e.g., “How to restart the Print Spooler”) and optionally test it in your local osTicket instance’s admin/staff panel.
+- **Labs**: Write a Markdown file in `/labs/` for a hands-on exercise, tested in a Linux VM or sandbox.
+- **Scenarios**: Combine tickets, KB articles, and labs into a complete workflow in `/scenarios/`.
 
-Each module builds on the previous one:
-- **Tickets** capture the problem.  
-- **KB articles** formalize the solution.  
-- **Labs** provide a training environment to reproduce and solve the issue.  
-- **Scenarios** connect everything into a real-world workflow. 
-
+You can test contributions in a local osTicket instance (optional):
+- **Client Portal** (e.g., `http://<vm-ip>/osticket/`): Submit tickets as a user.
+- **Admin/Staff Panel** (e.g., `http://<vm-ip>/osticket/scp`): Manage tickets, configure help topics, or draft KB articles (use credentials set during [lamp-osticket-setup.md](lamp-osticket-setup.md)).
 
 ## How Can I Contribute?
+You can contribute by writing tickets, KB articles, or labs in Markdown, optionally testing tickets/KB articles in a local osTicket instance or submitting tickets via GitHub Issues. Below are the details for each.
 
 ### Submitting Tickets
+Tickets represent user-reported problems (real, training, or fictional). You can write them directly in Markdown for `/tickets/`, submit them via GitHub Issues, or test them in a local osTicket instance for realism.
 
-Tickets describe problems users face. They can be **real-world issues**, **training exercises**, or **fictional but realistic scenarios**.  
+- **Option 1: Direct Markdown**: Write a ticket in the Markdown template below and save it in `/tickets/`.
+- **Option 2: GitHub Issues**: Open a GitHub Issue at [https://github.com/iplaycomputer/DeskForge-Simulator/issues](https://github.com/iplaycomputer/DeskForge-Simulator/issues) with details of a real-world tech support issue (e.g., “My laptop won’t connect to Wi-Fi”). Then, convert the issue details into the Markdown template and save in `/tickets/`.
+- **Option 3: Local osTicket (Recommended for Learning)**: Access your local client portal (e.g., `http://<vm-ip>/osticket/`), click “Open a New Ticket,” select a help topic (e.g., “Hardware”), and submit. Configure help topics in the admin panel (e.g., `http://<vm-ip>/osticket/scp`, Admin Panel → Manage → Help Topics) to match ticket categories. Copy the ticket details into the Markdown template.
+- **Example**: For a “Unable to print” issue, either submit a GitHub Issue with details, write `/tickets/printer-failure.md` directly, or test it in your local osTicket instance and document it in `/tickets/`.
+- **Inspiration**: See [COMMON_TICKET_EXAMPLES.md](COMMON_TICKET_EXAMPLES.md) for sample scenarios.
+- **Roles**: Check [ROLES.md](ROLES.md) for contributor roles (e.g., Tier 1, Tier 2).
+- **Metrics**: Review [METRICS.md](METRICS.md) for tracking resolution times and feedback.
 
-For inspiration and sample scenarios, see [COMMON_TICKET_EXAMPLES.md](COMMON_TICKET_EXAMPLES.md).  
-For contributor roles, see [ROLES.md](ROLES.MD)  
-For project metrics and feedback loops, see [METRICS.MD](METRICS.MD) 
-
-Use Markdown with this template:
-
+**Ticket Template** (create in `/tickets/` as `[filename].md`):
 ```markdown
-# Ticket: [Short title]
+# Ticket: [Short Title]
 
 **Category:** Hardware | Software | Network | Account | Other  
 **Priority:** Low | Medium | High | Critical  
 **Impact:** Single user | Department | Organization-wide  
 **Urgency:** Low (no workflow impact) | Medium (work slowed) | High (work blocked)  
 
-**Problem:** One-line description  
-**Symptoms:** What the user sees  
-**Environment:** OS / system / version  
+**Problem:** [One-line description of the issue]  
+**Symptoms:** [What the user sees or experiences]  
+**Environment:** [OS, system, or software version]  
 
 **Troubleshooting Steps Taken:**  
-- [ ] Step 1  
-- [ ] Step 2  
+- [ ] [Step 1, e.g., "Checked printer connection"]  
+- [ ] [Step 2, e.g., "Restarted Print Spooler service"]  
 
 **Resolution:**  
-(If known, give steps. If unknown, write "TBD")  
+[Steps to resolve, or "TBD" if unknown]  
 
 **Escalation Path:**  
-- [ ] Tier 1 complete  
-- [ ] Escalated to Tier 2  
-- [ ] Escalated to Tier 3  
+- [ ] Tier 1 complete (basic troubleshooting done)  
+- [ ] Escalated to Tier 2 (e.g., for driver issues)  
+- [ ] Escalated to Tier 3 (e.g., for hardware replacement)  
 ```
 
+**Tips**:
+- Use GitHub Issues to share real-world tech support issues you’ve encountered.
+- Test tickets in your local osTicket instance (if set up) to simulate a real helpdesk.
+- Follow the CompTIA A+ six-step model (see “Troubleshooting Philosophy”).
+- Submit your ticket as a pull request in the `/tickets/` folder.
+
 ### Creating KB Articles
+KB articles document solutions from solved tickets. Write them in Markdown for `/kb/` and optionally test them in your local osTicket instance’s admin/staff panel.
 
-Every solved ticket should ideally produce a **Knowledge Base (KB) article**.Each KB article must link to its 
-originating ticket. Articles should be reviewed periodically to ensure accuracy and retired when obsolete.
-
-```markdown 
+**KB Template** (create in `/kb/` as `[filename].md`):
+```markdown
 # KB: [Short Title]
 
 **Related Ticket(s):** /tickets/[filename].md  
 **Category:** Hardware | Software | Network | Account | Other  
-**Environment:** OS / system / version  
+**Environment:** [OS, system, or software version, e.g., "Windows 10, HP LaserJet Pro"]  
 
-**Owner:** [Contributor name or team]  
+**Owner:** [Your name or team]  
 **Last Reviewed:** [YYYY-MM-DD]  
 **Next Review Due:** [YYYY-MM-DD]  
 
 ## Resolution Steps
-1. [Step 1]  
-2. [Step 2]  
-3. [Step 3]  
-4. Verification: [What success looks like]  
+1. [Step 1, e.g., "Open Services.msc and locate Print Spooler"]  
+2. [Step 2, e.g., "Restart the service"]  
+3. Verification: [Confirm the outcome, e.g., "Print a test page to ensure success"]  
 
 ## Troubleshooting Notes
-- [Escalation guidance]  
-- [Known limitations or variations]  
-- [Logs, screenshots, or command outputs to capture]  
+- [Escalation guidance, e.g., "If restarting fails, check driver compatibility"]  
+- [Known limitations, e.g., "Solution may not work for network printers"]  
+- [Logs or outputs, e.g., "Check /var/log/syslog for errors"]  
 
 ## Linked Incidents
 - /tickets/[incident1].md  
 - /tickets/[incident2].md  
 
 ## Metrics / References
-- Mean Time to Resolution (MTTR): [Optional note if tracked]  
-- Recurrence: [Yes/No]  
-- External reference: [Vendor docs, URL, or manual]
+- Mean Time to Resolution (MTTR): [Optional, e.g., "10 minutes"]  
+- Recurrence: [Yes/No, e.g., "No"]  
+- External reference: [e.g., "HP Printer Manual, https://support.hp.com"]
 ```
-Contributors who create KBs are responsible for updating them if related tickets recur or environments change.
 
-### Creating Labs  
-Labs live in `/labs/` and are interactive walkthroughs of KB articles. Purpose: let contributors practice the fix in a safe, repeatable way. Labs should include checkpoints and verification steps that mirror KPIs (e.g., first-contact resolution, mean time to resolution).
+**Tips**:
+- Use your local osTicket admin/staff panel (e.g., `http://<vm-ip>/osticket/scp`) to draft KB articles, if set up.
+- Ensure steps are clear, reproducible, and tested.
+- Submit as a pull request in the `/kb/` folder.
 
-**Template:**  
+### Creating Labs
+Labs are standalone troubleshooting exercises in `/labs/`, tested in a Linux VM or sandbox (e.g., Ubuntu 24.04 Desktop or Docker container), not requiring osTicket. They let contributors practice steps from KB articles.
 
-```markdown 
-# Lab: [Short Title]  
+**Testing Labs**: Use a local Linux VM or sandbox to simulate issues (e.g., stop a service with `sudo systemctl stop <service>`). Follow [lamp-osticket-setup.md](lamp-osticket-setup.md) to set up a VM, or use a Docker container for simplicity.
+
+**Lab Template** (create in `/labs/` as `[filename].md`):
+```markdown
+# Lab: [Short Title]
+
 **Related KB:** /kb/[filename].md  
 **Category:** Hardware | Software | Network | Account | Other  
-**Environment:** OS / version / system  
+**Environment:** [OS, system, or software version, e.g., "Ubuntu 24.04"]  
 
-**Owner:** [Contributor name or team]  
+**Owner:** [Your name or team]  
 **Last Reviewed:** [YYYY-MM-DD]  
 **Next Review Due:** [YYYY-MM-DD]  
 
-## Objectives  
-- State the skill or troubleshooting goal.  
-- Example: "Learn to restart and verify the Windows Print Spooler service."  
+## Objectives
+- [Skill or goal, e.g., "Learn to diagnose and fix a failed print service"]
 
-## Prerequisites  
-- Required setup (VM, software, permissions, network access).  
-- Accounts or credentials needed.  
+## Prerequisites
+- [Setup, e.g., "Ubuntu 24.04 VM with CUPS installed"]  
+- [Credentials, e.g., "User with sudo access"]  
 
-## Steps  
-1. Restate the KB resolution steps as explicit lab instructions.  
-2. Add prompts for the learner to execute commands or verify outcomes.  
-3. Use fenced code blocks for commands.
+## Steps
+1. [Instruction, e.g., "Simulate a failure: sudo systemctl stop <service>"]  
+2. [Instruction, e.g., "Check service status: sudo systemctl status <service>"]  
+3. [Command, e.g.,]
+   ```bash
+   sudo systemctl restart <service>
+   ```
 
-## Verification  
-- Define what success looks like.  
-- Example: "A test document prints without error."  
-- Include acceptance criteria (pass/fail conditions).  
+## Verification
+- [Expected outcome, e.g., "Run lpstat -p; confirm printer is enabled"]  
+- [Pass condition, e.g., "Test page prints successfully"]  
+- [Fail condition, e.g., "Error: ‘printer not found’"]  
 
-## Escalation Context  
-- What to do if the learner cannot complete the lab (e.g., escalate to Tier 2).  
+## Escalation Context
+- [If lab fails, e.g., "Check /var/log/<service>/error_log and escalate to Tier 2 if driver issues persist. See ROLES.md"]  
 
-## Metrics / Feedback  
-- Estimated time to complete.  
-- Common errors observed.  
-- Links to related incidents or scenarios.  
+## Metrics / Feedback
+- Estimated time to complete: [e.g., "15 minutes"]  
+- Common errors: [e.g., "‘<service> not found’ (<service> not installed)"]  
+- Links: [/tickets/[incident].md or /scenarios/[scenario].md]  
 
-## Cleanup  
-- Optional: steps to revert or reset the environment.  
-- Return system to baseline for next learner.  
-```
-
-
-
+## Cleanup
+- [Reset steps, e.g., "Restart service: sudo systemctl start <service>"]  
+- [Ensure readiness, e.g., "Verify service status with systemctl status <service>"]  
+  
+**Tips**:
+- Test labs in a Linux VM or Docker container, not osTicket.
+- Include clear verification steps with specific commands or outputs.
+- Submit as a pull request in the `/labs/` folder.
