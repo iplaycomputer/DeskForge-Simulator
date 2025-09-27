@@ -4,13 +4,13 @@ Welcome to **DeskForge-Simulator**! This project simulates real-world helpdesk w
 
 This guide provides **guidelines** (not strict rules) for contributing to DeskForge-Simulator. Use your best judgment and suggest improvements via pull requests.
 
-**Note**: Setting up a local osTicket instance is **optional** but recommended to learn how ticketing systems work in real-world IT jobs (see [lamp-osticket-setup.md](lamp-osticket-setup.md)). You can contribute by writing Markdown files directly or sharing real-world tech support issues, KB drafts, or labs via GitHub Discussions.
+**Note**: Setting up a local osTicket instance is **optional** but recommended to learn how ticketing systems work in real-world IT jobs (see [lamp-osticket-setup.md](docs/lamp-osticket-setup.md)). You can contribute by writing Markdown files directly or sharing real-world tech support issues, KB drafts, or labs via GitHub Discussions.
 
 ## What You’ll Need
 - A GitHub account to submit contributions (sign up at [github.com](https://github.com)).
 - A text editor for writing Markdown files in `/tickets/`, `/kb/`, and `/labs/` (we provide templates!).
   
-- **Optional**: A local osTicket setup to test tickets and KB articles (see [lamp-osticket-setup.md](lamp-osticket-setup.md) for installing osTicket v1.18.1 in a VirtualBox VM with Ubuntu 24.04 Desktop; client portal at `http://<vm-ip>/osticket/`, admin/staff panel at `http://<vm-ip>/osticket/scp`). Replace `<vm-ip>` with your VM’s IP (use `ip addr show` in the terminal). Keep this private—do not share personal IPs in public contributions.
+- **Optional**: A local osTicket setup to test tickets and KB articles (see [lamp-osticket-setup.md](docs/lamp-osticket-setup.md) for installing osTicket v1.18.1 in a VirtualBox VM with Ubuntu 24.04 Desktop; client portal at `http://<vm-ip>/osticket/`, admin/staff panel at `http://<vm-ip>/osticket/scp`). Replace `<vm-ip>` with your VM’s IP (use `ip addr show` in the terminal). Keep this private—do not share personal IPs in public contributions.
   
 - For labs: A lightweight Linux VM or sandbox (e.g., Ubuntu 24.04 Desktop or Docker container) to test troubleshooting steps, which can be the same VM as osTicket or a separate one.
 - Curiosity and a willingness to learn—no IT expertise required!
@@ -48,6 +48,7 @@ This guide will help you:
    - [Submitting Tickets](#submitting-tickets)
    - [Creating KB Articles](#creating-kb-articles)
    - [Creating Labs](#creating-labs)
+   - [Creating Scenarios](#creating-scenarios)
 7. [Roadmap Note](#roadmap-note)
 
 ## Code of Conduct
@@ -92,7 +93,7 @@ DeskForge-Simulator mimics a real IT helpdesk, allowing you to contribute ticket
   - Clear communication with non-technical users.
   - Basic troubleshooting (e.g., OS, hardware, network issues).
   - Following templates and asking questions to clarify issues.
-- **osTicket Setup (Optional)**: For a hands-on ticketing system experience, set up a local osTicket instance using [lamp-osticket-setup.md](lamp-osticket-setup.md) (client portal at `http://<vm-ip>/osticket/`, admin/staff panel at `http://<vm-ip>/osticket/scp`). Replace `<vm-ip>` with your VM’s IP (use `ip addr show` in the terminal). Keep this private—do not share personal IPs in public contributions.
+- **osTicket Setup (Optional)**: For a hands-on ticketing system experience, set up a local osTicket instance using [lamp-osticket-setup.md](docs/lamp-osticket-setup.md) (client portal at `http://<vm-ip>/osticket/`, admin/staff panel at `http://<vm-ip>/osticket/scp`). Replace `<vm-ip>` with your VM’s IP (use `ip addr show` in the terminal). Keep this private—do not share personal IPs in public contributions.
 - **Lab Testing**: Test labs in a local Linux VM or sandbox (e.g., Ubuntu 24.04 Desktop or Docker container), which can be the same VM as osTicket or a separate one. osTicket is not required for labs.
 - **Learning by Doing**: The best way to learn is to write tickets, test solutions, and get feedback. Start small and improve with each contribution!
 
@@ -123,35 +124,11 @@ Tickets represent user-reported problems (real, training, or fictional). You can
 - **Option 2: Direct Markdown**: Write a ticket in the Markdown template below and save it in `/tickets/`.
 - **Option 3: Local osTicket (Recommended for Learning)**: Access your local client portal (e.g., `http://<vm-ip>/osticket/`), click “Open a New Ticket,” select a help topic (e.g., “Hardware”), and submit. Configure help topics in the admin panel (e.g., `http://<vm-ip>/osticket/scp`, Admin Panel → Manage → Help Topics). Replace `<vm-ip>` with your VM’s IP (use `ip addr show` in the terminal). Keep this private—do not share personal IPs in public contributions. Copy the ticket details into the Markdown template.
 - **Example**: For a “Unable to print” issue, post in GitHub Discussions (`Tickets` category) with details, write `/tickets/printer-failure.md` directly, or test it in your local osTicket instance and document it in `/tickets/`.
-- **Inspiration**: See [COMMON_TICKET_EXAMPLES.md](COMMON_TICKET_EXAMPLES.md) for sample scenarios.
-- **Roles**: Check [ROLES.md](ROLES.md) for contributor roles (e.g., Tier 1, Tier 2).
-- **Metrics**: Review [METRICS.md](METRICS.md) for tracking resolution times and feedback.
+- **Inspiration**: Browse existing examples in the `/tickets/` folder and the `Tickets` category in Discussions.
+- **Roles**: See [docs/ROLES.md](docs/ROLES.md) for tiers and escalation patterns.
+- **Metrics**: See [docs/METRICS.md](docs/METRICS.md) for lightweight fields to add to Tickets/KBs.
 
-**Ticket Template** (create in `/tickets/` as `[filename].md`):
-```markdown
-# Ticket: [Short Title]
-
-**Category:** Hardware | Software | Network | Account | Other  
-**Priority:** Low | Medium | High | Critical  
-**Impact:** Single user | Department | Organization-wide  
-**Urgency:** Low (no workflow impact) | Medium (work slowed) | High (work blocked)  
-
-**Problem:** [One-line description of the issue]  
-**Symptoms:** [What the user sees or experiences]  
-**Environment:** [OS, system, or software version]  
-
-**Troubleshooting Steps Taken:**  
-- [ ] [Step 1, e.g., "Checked printer connection"]  
-- [ ] [Step 2, e.g., "Restarted Print Spooler service"]  
-
-**Resolution:**  
-[Steps to resolve, or "TBD" if unknown]  
-
-**Escalation Path:**  
-- [ ] Tier 1 complete (basic troubleshooting done)  
-- [ ] Escalated to Tier 2 (e.g., for driver issues)  
-- [ ] Escalated to Tier 3 (e.g., for hardware replacement)  
-```
+Template: copy `/tickets/000.ticket-template.md` to `/tickets/<your-title>.md` and fill it out.
 
 **Tips**:
 - Use GitHub Discussions (`Tickets` category) to share real-world tech support issues you’ve encountered.
@@ -162,37 +139,7 @@ Tickets represent user-reported problems (real, training, or fictional). You can
 ### Creating KB Articles
 KB articles document solutions from solved tickets. Share them in GitHub Discussions (`Knowledge Base` category) or write them in Markdown for `/kb/`. Optionally, test them in your local osTicket instance’s admin/staff panel.
 
-**KB Template** (create in `/kb/` as `[filename].md`):
-```markdown
-# KB: [Short Title]
-
-**Related Ticket(s):** /tickets/[filename].md  
-**Category:** Hardware | Software | Network | Account | Other  
-**Environment:** [OS, system, or software version, e.g., "Windows 10, HP LaserJet Pro"]  
-
-**Owner:** [Your name or team]  
-**Last Reviewed:** [YYYY-MM-DD]  
-**Next Review Due:** [YYYY-MM-DD]  
-
-## Resolution Steps
-1. [Step 1, e.g., "Open Services.msc and locate Print Spooler"]  
-2. [Step 2, e.g., "Restart the service"]  
-3. Verification: [Confirm the outcome, e.g., "Print a test page to ensure success"]  
-
-## Troubleshooting Notes
-- [Escalation guidance, e.g., "If restarting fails, check driver compatibility"]  
-- [Known limitations, e.g., "Solution may not work for network printers"]  
-- [Logs or outputs, e.g., "Check /var/log/syslog for errors"]  
-
-## Linked Incidents
-- /tickets/[incident1].md  
-- /tickets/[incident2].md  
-
-## Metrics / References
-- Mean Time to Resolution (MTTR): [Optional, e.g., "10 minutes"]  
-- Recurrence: [Yes/No, e.g., "No"]  
-- External reference: [e.g., "HP Printer Manual, https://support.hp.com"]
-```
+Template: copy `/kb/000.kb-template.md` to `/kb/<your-title>.md` and complete the fields.
 
 **Tips**:
 - Share KB drafts in GitHub Discussions (`Knowledge Base` category) for feedback.
@@ -203,56 +150,38 @@ KB articles document solutions from solved tickets. Share them in GitHub Discuss
 ### Creating Labs
 Labs are standalone troubleshooting exercises in `/labs/`, tested in a Linux VM or sandbox (e.g., Ubuntu 24.04 Desktop or Docker container), not requiring osTicket. Share them in GitHub Discussions (`Labs` category) or write them in Markdown.
 
-**Testing Labs**: Use a local Linux VM or sandbox to simulate issues (e.g., stop a service with `sudo systemctl stop <service>`). Follow [lamp-osticket-setup.md](lamp-osticket-setup.md) to set up a VM, or use a Docker container for simplicity.
+**Testing Labs**: Use a local Linux VM or sandbox to simulate issues (e.g., stop a service with `sudo systemctl stop <service>`). Follow [lamp-osticket-setup.md](docs/lamp-osticket-setup.md) to set up a VM, or use a Docker container for simplicity.
 
-**Lab Template** (create in `/labs/` as `[filename].md`):
-```markdown
-# Lab: [Short Title]
-
-**Related KB:** /kb/[filename].md  
-**Category:** Hardware | Software | Network | Account | Other  
-**Environment:** [OS, system, or software version, e.g., "Ubuntu 24.04"]  
-
-**Owner:** [Your name or team]  
-**Last Reviewed:** [YYYY-MM-DD]  
-**Next Review Due:** [YYYY-MM-DD]  
-
-## Objectives
-- [Skill or goal, e.g., "Learn to diagnose and fix a failed print service"]
-
-## Prerequisites
-- [Setup, e.g., "Ubuntu 24.04 VM with CUPS installed"]  
-- [Credentials, e.g., "User with sudo access"]  
-
-## Steps
-1. [Instruction, e.g., "Simulate a failure: sudo systemctl stop <service>"]  
-2. [Instruction, e.g., "Check service status: sudo systemctl status <service>"]  
-3. [Command, e.g.,]
-   `sudo systemctl restart <service>`
-
-## Verification
-- [Expected outcome, e.g., "Run lpstat -p; confirm printer is enabled"]  
-- [Pass condition, e.g., "Test page prints successfully"]  
-- [Fail condition, e.g., "Error: ‘printer not found’"]  
-
-## Escalation Context
-- [If lab fails, e.g., "Check /var/log/<service>/error_log and escalate to Tier 2 if driver issues persist. See ROLES.md"]  
-
-## Metrics / Feedback
-- Estimated time to complete: [e.g., "15 minutes"]  
-- Common errors: [e.g., "‘<service> not found’ (<service> not installed)"]  
-- Links: [/tickets/[incident].md or /scenarios/[scenario].md]  
-
-## Cleanup
-- [Reset steps, e.g., "Restart service: sudo systemctl start <service>"]  
-- [Ensure readiness, e.g., "Verify service status with systemctl status <service>"]
-
-```
+Template: copy `/labs/000.lab-template.md` to `/labs/<your-title>.md` and follow the structure.
 **Tips**:
 - Share lab ideas in GitHub Discussions (`Labs` category) for feedback.
 - Test labs in a Linux VM or Docker container, not osTicket.
 - Include clear verification steps with specific commands or outputs.
 - Submit as a pull request in the `/labs/` folder.
+
+### Creating Scenarios
+Scenarios stitch together one or more tickets, a KB article, and an optional lab into an end-to-end learning flow. Use them to show how a real incident moves from report → resolution → documentation → practice.
+
+**When to create a scenario**
+- You have at least one ticket and a corresponding KB article; a lab is recommended but optional.
+- You want a guided narrative that learners can follow front-to-back.
+
+**How to author**
+- Start from the template at `/scenarios/000.scenario-template.md`.
+- Create a new file under `/scenarios/`, e.g. `/scenarios/printer-outage-end-to-end.md`.
+- Fill in:
+  - Related Ticket(s): link to one or more tickets, e.g. `/tickets/printer-failure.md`.
+  - Related KB: link to your KB, e.g. `/kb/printer-spooler-restart.md`.
+  - Related Lab: link if you have one, e.g. `/labs/restart-print-spooler.md`.
+  - Overview, Flow (Ticket → KB → Lab), Success Criteria.
+
+**Submission**
+- Open a PR with the new scenario file in `/scenarios/`.
+- In your PR description, briefly summarize the learning goals and link the related ticket/KB/lab.
+
+**Tips**
+- Keep links relative so they work in GitHub and downstream clones.
+- Be explicit about pass/fail checks so learners can self-verify.
 
 
 ## Roadmap Note

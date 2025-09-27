@@ -75,6 +75,7 @@ Think of it as a safe space to learn troubleshooting together, not a replacement
 - Follow [lamp-osticket-setup.md](docs/lamp-osticket-setup.md) to set up an optional **local osTicket instance** on Ubuntu 24.04 (for realism).  
 - Or start contributing right away using **GitHub Discussions** and Markdown files in `/tickets/`, `/kb/`, and `/labs/`.  
 - See the [CONTRIBUTING.md](CONTRIBUTING.md) guide for templates and workflow details.  
+ - For end-to-end flows, see the `/scenarios/` folder and use the template at `/scenarios/000.scenario-template.md`.
 
 ## ❤️ Community & Contributions  
 
@@ -86,6 +87,7 @@ DeskForge-Simulator is **community-driven**. We welcome:
 - 💡 Ideas for scenarios or learning modules  
 
 Check out the [CONTRIBUTING.md](CONTRIBUTING.md) guide and join the conversation in [GitHub Discussions](https://github.com/iplaycomputer/DeskForge-Simulator/discussions).  
+
 
 ## 📫 Questions & Support  
 
