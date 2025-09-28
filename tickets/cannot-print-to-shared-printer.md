@@ -28,8 +28,9 @@
 [TBD]
 
 **Escalation Path:**  
--
+
 - [ ] Tier 1 complete (client/queue verification)  
 - [ ] Escalated to Tier 2 (server-side queue/driver)  
 - [ ] Escalated to Tier 3 (hardware/network issue)
  
+
