@@ -22,6 +22,10 @@ This repo simulates real helpdesk workflows using Markdown contributions. Agents
 - Keep language plain and steps reproducible. Include environment details (OS/version), verification, and escalation path.
 - Link artifacts with relative paths (e.g., `/tickets/printer-failure.md` in KB/Lab/Scenario).
 - Use checklists for Tier 1/2/3 completion; mark what you actually did.
+- Avoid duplication across modules:
+  - Put complete commands and environment setup in Labs, with a dedicated "Verification" section.
+  - Keep KBs focused on productized steps and brief verification; link to the Lab for full command details.
+  - Scenarios should express flow and success criteria, linking to KB "Resolution Steps" and Lab "Verification" sections (use deep links like `/kb/foo.md#resolution-steps` and `/labs/bar.md#verification`).
 
 ## Workflows
 - Propose in Discussions: draft tickets/KBs/labs in appropriate categories.

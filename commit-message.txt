@@ -1,15 +1,94 @@
-docs: folder guides + labs catalog; nginx compose pin+healthcheck; lab + readme updates
+docs: exhaustive changelog — labs, scenarios, KBs, tickets, folder guides, cross-links, nginx pin+healthcheck, duplication/deep-link guidance
 
-- Add folder READMEs: tickets/README.md, kb/README.md, scenarios/README.md (intros, conventions, template links)
-- Labs: add labs/README.md (catalog) and refine copy; link beginner nginx lab
-- CONTRIBUTING: add one-liner links to folder guides for quick navigation
-- Nginx lab assets: pin image to nginx:1.27-alpine and add healthcheck in compose.yaml
-- Lab doc: reflect pin/healthcheck and add health status to verification
-- README: link Labs Catalog and folder guides for discoverability
-- (Previous) Add PR template, AI guide, roles/metrics, scenarios template; update CONTRIBUTING
+Summary
+- Add and polish end-to-end helpdesk simulation: Tickets → KB → Labs → Scenarios.
+- Create 4 tickets, 4 KBs, 5 runnable labs (with assets), and 4 scenarios; wire cross-links throughout.
+- Add folder-level READMEs and a Labs Catalog for discoverability.
+- Pin Docker images where applicable and add a healthcheck for nginx to improve feedback and reproducibility.
+- Update CONTRIBUTING and AI guidance to enforce “no duplication” and deep-linking across modules.
+
+Details (by area)
+
+Tickets (added)
+- tickets/account-locked-out.md — Mock end-user report for account lockout.
+- tickets/cannot-print-to-shared-printer.md — Mock report for shared printer failure.
+- tickets/outlook-disconnected-password-prompts.md — Mock report for Outlook disconnections/password prompts.
+- tickets/computer-running-slow-lagging.md — Mock report for workstation performance issues.
+- tickets/README.md — Folder guide with purpose, examples, and template pointers.
+
+Knowledge Base (added)
+- kb/account-lockout-reset.md — KB: account unlock/reset steps; brief verification; links to related ticket/lab/scenario.
+- kb/printer-queue-clearing.md — KB: clear/reset stuck print queue; brief verification; links to related artifacts.
+- kb/outlook-reconnect-after-update.md — KB: reconnect Outlook after update/login prompts; brief verification.
+- kb/workstation-performance-triage.md — KB: triage steps for slow/lagging workstation; brief verification.
+- kb/README.md — Folder guide describing KB role and conventions.
+- kb/000.kb-template.md — Template reference (existing) used for new KBs.
+
+Labs (added/updated)
+- labs/nginx-startup-fail.md — Tutorial lab polished for beginners: intro, preflight, hints, verification, and pitfalls.
+	- labs/nginx-startup-fail/assets/compose.yaml — Pin nginx:1.27-alpine; add wget-based healthcheck.
+	- labs/nginx-startup-fail/assets/nginx.conf — Intentional config error to troubleshoot.
+	- labs/nginx-startup-fail/assets/html/index.html — Simple page for verification.
+- labs/htpasswd-auth-reset.md — Lab: reset/repair htpasswd auth; includes scenario-appropriate verification.
+	- labs/htpasswd-auth-reset/assets/compose.yaml — Service composition for nginx + auth.
+	- labs/htpasswd-auth-reset/assets/nginx.conf — Intentional misconfig for auth.
+- labs/mailhog-connectivity.md — Lab: diagnose SMTP relay/connectivity with MailHog.
+	- labs/mailhog-connectivity/assets/compose.yaml — Pinned MailHog service for local testing.
+- labs/print-queue-stuck.md — Lab: reproduce and clear a stuck print queue pattern.
+	- labs/print-queue-stuck/assets/compose.yaml — Minimal service to emulate queue behavior.
+- labs/resource-spike-triage.md — Lab: CPU/memory/disk spike triage using lightweight tools or containers.
+	- labs/resource-spike-triage/assets/ — Assets folder (reserved for future extensions).
+- labs/000.lab-template.md — Template reference (existing) used for new labs.
+- labs/README.md — Labs Catalog with quick summaries and links; clarifies verification anchors.
+
+Scenarios (added)
+- scenarios/account-lockout-reset.md — Scenario flow linking ticket → KB → lab; success criteria outlined.
+- scenarios/printer-queue-clearing.md — Scenario flow for printer issue; links wired to KB and lab.
+- scenarios/outlook-reconnect-after-update.md — Scenario flow for Outlook reconnect case.
+- scenarios/workstation-performance-triage.md — Scenario flow for workstation performance triage.
+- scenarios/README.md — Folder guide describing Scenarios’ purpose and linking patterns.
+- scenarios/000.scenario-template.md — Template reference (existing) used for scenarios.
+
+Navigation & repo hygiene (added/updated)
+- README.md — Updated to link Folder Guides and Labs Catalog for better discoverability.
+- CONTRIBUTING.md — Clarified module roles, discussion categories, and osTicket is optional; added:
+	- Roles (avoid duplication): Labs = commands + Verification; KBs = productized steps + brief verification; Scenarios = flow + success criteria.
+	- Guidance to deep-link to specific sections (e.g., /kb/...#resolution-steps, /labs/...#verification).
+	- Emphasized Labs as the canonical source for commands and environment.
+- docs/ROLES.md — Lightweight tiers, escalation cues, ownership (referenced by contributors).
+- docs/METRICS.md — MTTR, recurrence, and verification fields (referenced by contributors).
+- docs/lamp-osticket-setup.md — Optional local osTicket setup guide; URLs use http://<vm-ip>/osticket/ and /scp.
+
+AI & PR guidance (added/updated)
+- .github/copilot-instructions.md — AI authoring guidance aligned to four modules; now explicitly enforces:
+	- No duplication across modules (Labs hold commands; KBs hold steps; Scenarios link + define success).
+	- Deep links to KB “Resolution Steps” and Lab “Verification” sections.
+
+Reproducibility & verification improvements
+- Pinned images in compose files where appropriate (e.g., nginx:1.27-alpine; MailHog where used).
+- Added wget-based healthcheck to nginx lab to provide fast, clear status feedback.
+- Standardized “Verification” sections in Labs and brief verification in KBs; Scenarios define success criteria.
+
+Cross-linking
+- Each Ticket ↔ KB ↔ Lab triad includes “Related” sections.
+- Scenarios link to related Ticket(s), KB, and Lab; guidance updated to use deep links to specific sections.
+
+Notes
+- All changes were committed locally earlier; this message consolidates the full changelog for clarity.
+- This update also captures the latest contributor and AI guidance edits made in this session.
+
+docs: add runnable labs + scenarios + KBs; folder guides; cross-links; nginx pin+healthcheck
+
+- Labs: add htpasswd-auth-reset, mailhog-connectivity, print-queue-stuck, resource-spike-triage (+ assets where applicable)
+- Labs: enhance nginx-startup-fail (pin nginx:1.27-alpine, add healthcheck; clearer verification)
+- Scenarios: add account-lockout-reset, outlook-reconnect-after-update, printer-queue-clearing, workstation-performance-triage (Ticket → KB → Lab flow)
+- KBs: add account-lockout-reset, outlook-reconnect-after-update, printer-queue-clearing, workstation-performance-triage; link tickets/labs/scenarios
+- Tickets: add 4 example tickets and link them in tickets/README.md
+- Navigation: add folder READMEs (tickets/kb/scenarios) and Labs Catalog; link from root README; add folder-guide links in CONTRIBUTING
+- Cross-linking: standardize Related blocks (Ticket/KB/Scenario) and add Verification anchors in labs for deep links
 
 Rationale:
-Keep labs organized and easy to find; make the nginx tutorial beginner-friendly without adding complexity. Preserve contributor ergonomics with clear entry points.
+Enable end-to-end practice from ticket intake through KB resolution and hands-on labs, while keeping navigation simple and avoiding step duplication (labs hold commands; KBs hold productized steps; scenarios define flow + success criteria).
 
 Notes:
-Docs-only change; no breaking changes.
+Docs + lab assets only; no breaking code changes.

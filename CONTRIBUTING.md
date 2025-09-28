@@ -109,6 +109,11 @@ DeskForge-Simulator is built around four modules that mirror real helpdesk workf
 
 Folder guides for quick navigation: [Tickets](tickets/README.md) · [KB](kb/README.md) · [Labs](labs/README.md) · [Scenarios](scenarios/README.md)
 
+Roles (to avoid duplication):
+- Labs are the canonical source of exact commands and environment setup. Always put full commands in Labs and include a small "Verification" section.
+- KBs contain productized resolution steps with 1–2 verification lines (max). Link to the Lab for full commands.
+- Scenarios define the flow and success criteria; they should link to specific sections in the KB (Resolution Steps) and Lab (Verification) rather than restating steps.
+
 ### How Modules Work Together
 Contributions flow like this: **Ticket → Resolution → KB → Lab → Scenario**.
 - **Tickets**: Share a ticket in GitHub Discussions (`Tickets` category) or write a Markdown file in `/tickets/` describing a problem (e.g., “Printer not working”). 
@@ -158,6 +163,7 @@ Folder guide: see [kb/README.md](kb/README.md)
 - Share KB drafts in GitHub Discussions (`Knowledge Base` category) for feedback.
 - Use your local osTicket admin/staff panel (e.g., `http://<vm-ip>/osticket/scp`) to draft KB articles, if set up. Replace `<vm-ip>` with your VM’s IP (use `ip addr show` in the terminal). Keep this private—do not share personal IPs in public contributions.
 - Ensure steps are clear, reproducible, and tested.
+- Keep verification concise (1–2 lines). For full commands and environment, link to the related Lab.
 - Submit as a pull request in the `/kb/` folder.
 
 ### Creating Labs
@@ -169,7 +175,7 @@ Template: copy `/labs/000.lab-template.md` to `/labs/<your-title>.md` and follow
 **Tips**:
 - Share lab ideas in GitHub Discussions (`Labs` category) for feedback.
 - Test labs in a Linux VM or Docker container, not osTicket.
-- Include clear verification steps with specific commands or outputs.
+- Include a dedicated "Verification" section with specific commands/outputs (Labs are the source of truth for commands).
 - Submit as a pull request in the `/labs/` folder.
 
 Folder guide: see [labs/README.md](labs/README.md)
@@ -199,6 +205,7 @@ Folder guide: see [scenarios/README.md](scenarios/README.md)
 **Tips**
 - Keep links relative so they work in GitHub and downstream clones.
 - Be explicit about pass/fail checks so learners can self-verify.
+- Prefer deep links to existing sections instead of rewriting steps, e.g.: `/kb/...#resolution-steps` and `/labs/...#verification`.
 
 
 ## Roadmap Note
