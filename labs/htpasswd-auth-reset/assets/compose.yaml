@@ -1,0 +1,16 @@
+version: "3.9"
+services:
+  nginx:
+    image: nginx:1.27-alpine
+    container_name: nginx-auth
+    ports:
+      - "8090:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./html:/usr/share/nginx/html:ro
+  htpasswd:
+    image: httpd:2.4-alpine
+    container_name: htpasswd
+    command: ["sh", "-lc", "mkdir -p /auth && if [ ! -f /auth/.htpasswd ]; then htpasswd -b -c /auth/.htpasswd user initial; fi; tail -f /dev/null"]
+    volumes:
+      - ./auth:/auth

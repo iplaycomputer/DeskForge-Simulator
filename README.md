@@ -76,6 +76,8 @@ Think of it as a safe space to learn troubleshooting together, not a replacement
 - Or start contributing right away using **GitHub Discussions** and Markdown files in `/tickets/`, `/kb/`, and `/labs/`.  
 - See the [CONTRIBUTING.md](CONTRIBUTING.md) guide for templates and workflow details.  
  - For end-to-end flows, see the `/scenarios/` folder and use the template at `/scenarios/000.scenario-template.md`.
+ - Browse available labs in the [Labs Catalog](labs/README.md).
+   - Explore folder guides: [Tickets](tickets/README.md) · [KB](kb/README.md) · [Scenarios](scenarios/README.md)
 
 ## ❤️ Community & Contributions  
 

@@ -1,0 +1,15 @@
+docs: folder guides + labs catalog; nginx compose pin+healthcheck; lab + readme updates
+
+- Add folder READMEs: tickets/README.md, kb/README.md, scenarios/README.md (intros, conventions, template links)
+- Labs: add labs/README.md (catalog) and refine copy; link beginner nginx lab
+- CONTRIBUTING: add one-liner links to folder guides for quick navigation
+- Nginx lab assets: pin image to nginx:1.27-alpine and add healthcheck in compose.yaml
+- Lab doc: reflect pin/healthcheck and add health status to verification
+- README: link Labs Catalog and folder guides for discoverability
+- (Previous) Add PR template, AI guide, roles/metrics, scenarios template; update CONTRIBUTING
+
+Rationale:
+Keep labs organized and easy to find; make the nginx tutorial beginner-friendly without adding complexity. Preserve contributor ergonomics with clear entry points.
+
+Notes:
+Docs-only change; no breaking changes.

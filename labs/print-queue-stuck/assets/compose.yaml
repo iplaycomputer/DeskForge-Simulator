@@ -1,0 +1,16 @@
+version: "3.9"
+services:
+  print-queue:
+    image: alpine:3.20
+    container_name: print-queue
+    command: ["sh", "-c", "mkdir -p /queue && touch /queue/jobs.txt /queue/processed.txt && tail -f /dev/null"]
+    volumes:
+      - ./queue:/queue
+  print-queue-consumer:
+    image: alpine:3.20
+    container_name: print-queue-consumer
+    command: ["sh", "-c", "apk add --no-cache coreutils && while true; do if [ -s /queue/jobs.txt ]; then head -n 1 /queue/jobs.txt >> /queue/processed.txt && tail -n +2 /queue/jobs.txt > /queue/jobs.tmp && mv /queue/jobs.tmp /queue/jobs.txt; fi; sleep 2; done"]
+    volumes:
+      - ./queue:/queue
+    depends_on:
+      - print-queue

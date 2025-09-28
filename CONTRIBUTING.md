@@ -107,11 +107,17 @@ DeskForge-Simulator is built around four modules that mirror real helpdesk workf
 | **Labs** | `/labs/` | Hands-on troubleshooting exercises, tested in a Linux VM or sandbox, written in Markdown and shared via GitHub Discussions. |
 | **Scenarios** | `/scenarios/` | End-to-end workflows combining tickets, KB articles, and labs, written in Markdown. |
 
+Folder guides for quick navigation: [Tickets](tickets/README.md) · [KB](kb/README.md) · [Labs](labs/README.md) · [Scenarios](scenarios/README.md)
+
 ### How Modules Work Together
 Contributions flow like this: **Ticket → Resolution → KB → Lab → Scenario**.
-- **Tickets**: Share a ticket in GitHub Discussions (`Tickets` category) or write a Markdown file in `/tickets/` describing a problem (e.g., “Printer not working”). Optionally, test it in your local osTicket instance’s client portal (`http://<vm-ip>/osticket/`). Replace `<vm-ip>` with your VM’s IP (use `ip addr show` in the terminal). Keep this private—do not share personal IPs in public contributions.
+- **Tickets**: Share a ticket in GitHub Discussions (`Tickets` category) or write a Markdown file in `/tickets/` describing a problem (e.g., “Printer not working”). 
+
+Optionally, test it in your local osTicket instance’s client portal (`http://<vm-ip>/osticket/`). Replace `<vm-ip>` with your VM’s IP (use `ip addr show` in the terminal). Keep this private—do not share personal IPs in public contributions.
+
 - **KB Articles**: Share a KB draft in GitHub Discussions (`Knowledge Base` category) or write a Markdown file in `/kb/` formalizing the solution (e.g., “How to restart the Print Spooler”). Optionally, test it in your local osTicket instance’s admin/staff panel (`http://<vm-ip>/osticket/scp`).
 - **Labs**: Share a lab idea in GitHub Discussions (`Labs` category) or write a Markdown file in `/labs/` for a hands-on exercise, tested in a Linux VM or sandbox.
+
 - **Scenarios**: Combine tickets, KB articles, and labs into a complete workflow in `/scenarios/`.
 
 ## How Can I Contribute?
@@ -121,14 +127,19 @@ You can contribute by writing tickets, KB articles, or labs in Markdown, sharing
 Tickets represent user-reported problems (real, training, or fictional). You can share them in GitHub Discussions, write them directly in Markdown for `/tickets/`, or test them in a local osTicket instance for realism.
 
 - **Option 1: GitHub Discussions**: Post a ticket in the `Tickets` category at [https://github.com/iplaycomputer/DeskForge-Simulator/discussions](https://github.com/iplaycomputer/DeskForge-Simulator/discussions) with details of a real-world tech support issue (e.g., “My laptop won’t connect to Wi-Fi”). Convert the details into the Markdown template and save in `/tickets/`.
+
 - **Option 2: Direct Markdown**: Write a ticket in the Markdown template below and save it in `/tickets/`.
+
 - **Option 3: Local osTicket (Recommended for Learning)**: Access your local client portal (e.g., `http://<vm-ip>/osticket/`), click “Open a New Ticket,” select a help topic (e.g., “Hardware”), and submit. Configure help topics in the admin panel (e.g., `http://<vm-ip>/osticket/scp`, Admin Panel → Manage → Help Topics). Replace `<vm-ip>` with your VM’s IP (use `ip addr show` in the terminal). Keep this private—do not share personal IPs in public contributions. Copy the ticket details into the Markdown template.
+
 - **Example**: For a “Unable to print” issue, post in GitHub Discussions (`Tickets` category) with details, write `/tickets/printer-failure.md` directly, or test it in your local osTicket instance and document it in `/tickets/`.
 - **Inspiration**: Browse existing examples in the `/tickets/` folder and the `Tickets` category in Discussions.
 - **Roles**: See [docs/ROLES.md](docs/ROLES.md) for tiers and escalation patterns.
 - **Metrics**: See [docs/METRICS.md](docs/METRICS.md) for lightweight fields to add to Tickets/KBs.
 
 Template: copy `/tickets/000.ticket-template.md` to `/tickets/<your-title>.md` and fill it out.
+
+Folder guide: see [tickets/README.md](tickets/README.md)
 
 **Tips**:
 - Use GitHub Discussions (`Tickets` category) to share real-world tech support issues you’ve encountered.
@@ -140,6 +151,8 @@ Template: copy `/tickets/000.ticket-template.md` to `/tickets/<your-title>.md` a
 KB articles document solutions from solved tickets. Share them in GitHub Discussions (`Knowledge Base` category) or write them in Markdown for `/kb/`. Optionally, test them in your local osTicket instance’s admin/staff panel.
 
 Template: copy `/kb/000.kb-template.md` to `/kb/<your-title>.md` and complete the fields.
+
+Folder guide: see [kb/README.md](kb/README.md)
 
 **Tips**:
 - Share KB drafts in GitHub Discussions (`Knowledge Base` category) for feedback.
@@ -158,6 +171,8 @@ Template: copy `/labs/000.lab-template.md` to `/labs/<your-title>.md` and follow
 - Test labs in a Linux VM or Docker container, not osTicket.
 - Include clear verification steps with specific commands or outputs.
 - Submit as a pull request in the `/labs/` folder.
+
+Folder guide: see [labs/README.md](labs/README.md)
 
 ### Creating Scenarios
 Scenarios stitch together one or more tickets, a KB article, and an optional lab into an end-to-end learning flow. Use them to show how a real incident moves from report → resolution → documentation → practice.
@@ -178,6 +193,8 @@ Scenarios stitch together one or more tickets, a KB article, and an optional lab
 **Submission**
 - Open a PR with the new scenario file in `/scenarios/`.
 - In your PR description, briefly summarize the learning goals and link the related ticket/KB/lab.
+
+Folder guide: see [scenarios/README.md](scenarios/README.md)
 
 **Tips**
 - Keep links relative so they work in GitHub and downstream clones.
