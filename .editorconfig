@@ -1,0 +1,12 @@
+# EditorConfig helps maintain consistent coding styles
+root = true
+
+[*]
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+charset = utf-8
+
+[*.md]
+# Keep Markdown tidy; code blocks remain untouched by trim rule exceptions
+trim_trailing_whitespace = true
