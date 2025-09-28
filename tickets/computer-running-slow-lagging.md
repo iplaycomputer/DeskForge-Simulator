@@ -16,8 +16,8 @@
 **Symptoms:** Long app launch times; constant disk activity; internal company site loads slowly while YouTube is fine.  
 **Environment:** Windows 10 desktop; corporate network.
 
-**Troubleshooting Steps Taken:**  
--
+## Troubleshooting Steps Taken
+
 - [ ] Compared internal vs external network latency (ping tests)  
 - [ ] Checked Task Manager CPU/RAM/Disk usage and processes  
 - [ ] Ran malware scan or checked for runaway updates  
@@ -27,9 +27,9 @@
 **Resolution:**  
 [TBD]
 
-**Escalation Path:**  
--
+## Escalation Path
+
 - [ ] Tier 1 complete (resource & basic network checks)  
 - [ ] Escalated to Tier 2 (network/server)  
 - [ ] Escalated to Tier 3 (hardware upgrade/policy)
- 
+
