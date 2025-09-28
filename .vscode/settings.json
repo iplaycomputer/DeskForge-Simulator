@@ -3,6 +3,7 @@
   "files.insertFinalNewline": true,
   "files.eol": "\n",
   "[markdown]": {
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
+    "markdownlint.fix.onSave": true
   }
 }

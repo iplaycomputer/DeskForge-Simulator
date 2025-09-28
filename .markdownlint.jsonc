@@ -4,5 +4,9 @@
   // Allow consecutive headings in templates/checklists
   "MD025": false,
   // Allow inline HTML when needed (README badges)
-  "MD033": false
+  "MD033": false,
+  // Allow non-heading first lines (some files are not articles)
+  "MD041": false,
+  // Temporarily disable strict fragment validation to reduce false positives on deep-links
+  "MD051": false
 }
