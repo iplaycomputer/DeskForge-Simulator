@@ -11,7 +11,6 @@
 3. In lab, trigger and stop a synthetic load; verify usage returns to normal.
 
 ## Success Criteria
- 
+
 - CPU/Disk usage normalizes; simple command completes fast.
 - Ticket lists root cause and remediation; KB drafted.
- 
