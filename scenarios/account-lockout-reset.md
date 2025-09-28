@@ -1,8 +1,8 @@
 # Scenario: Account lockout and password reset
 
 - Related Ticket: /tickets/account-locked-out.md
-- Related KB: /kb/account-lockout-reset.md
-- Related Lab: /labs/htpasswd-auth-reset.md
+- Related KB: /kb/account-lockout-reset.md#resolution-steps
+- Related Lab: /labs/htpasswd-auth-reset.md#verification
 
 ## Flow
 1. User reports lockout; verify identity and account status.

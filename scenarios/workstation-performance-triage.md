@@ -1,8 +1,8 @@
 # Scenario: Workstation performance triage
 
 - Related Ticket: /tickets/computer-running-slow-lagging.md
-- Related KB: /kb/workstation-performance-triage.md
-- Related Lab: /labs/resource-spike-triage.md
+- Related KB: /kb/workstation-performance-triage.md#resolution-steps
+- Related Lab: /labs/resource-spike-triage.md#verification
 
 ## Flow
 1. Compare internal vs external latency; check local resource usage.

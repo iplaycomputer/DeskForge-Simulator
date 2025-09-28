@@ -1,8 +1,8 @@
 # Scenario: Department-wide printer outage (queue clearing)
 
 - Related Ticket: /tickets/cannot-print-to-shared-printer.md
-- Related KB: /kb/printer-queue-clearing.md
-- Related Lab: /labs/print-queue-stuck.md
+- Related KB: /kb/printer-queue-clearing.md#resolution-steps
+- Related Lab: /labs/print-queue-stuck.md#verification
 
 ## Flow
 1. Confirm scope (multiple users); check server queue/state.
