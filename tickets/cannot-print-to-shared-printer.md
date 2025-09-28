@@ -17,6 +17,7 @@
 **Environment:** Windows clients printing via central print server.
 
 **Troubleshooting Steps Taken:**  
+-
 - [ ] Confirmed print server is running and reachable  
 - [ ] Remotely checked client printer driver/port  
 - [ ] Cleared local print queue; attempted test page  
@@ -27,6 +28,8 @@
 [TBD]
 
 **Escalation Path:**  
+-
 - [ ] Tier 1 complete (client/queue verification)  
 - [ ] Escalated to Tier 2 (server-side queue/driver)  
 - [ ] Escalated to Tier 3 (hardware/network issue)
+ 

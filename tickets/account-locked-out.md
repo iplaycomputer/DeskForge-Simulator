@@ -17,6 +17,7 @@
 **Environment:** Windows desktop joined to AD; remote services (email/VPN) affected.
 
 **Troubleshooting Steps Taken:**  
+-
 - [ ] Verified user identity via secondary info (DOB, employee ID)  
 - [ ] Checked AD status for JDoe  
 - [ ] If locked, unlocked account  
@@ -27,6 +28,8 @@
 [TBD]
 
 **Escalation Path:**  
+-
 - [ ] Tier 1 complete (basic checks and unlock/reset)  
 - [ ] Escalated to Tier 2 (e.g., repeated lockouts, MFA issues)  
 - [ ] Escalated to Tier 3 (directory service problems)
+ 

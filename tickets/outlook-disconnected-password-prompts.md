@@ -17,6 +17,7 @@
 **Environment:** Laptop (potentially remote); VPN in use when offsite.
 
 **Troubleshooting Steps Taken:**  
+-
 - [ ] Verified credentials work on another system (e.g., internal portal)  
 - [ ] Checked Outlook status bar connectivity  
 - [ ] Verified VPN connection if remote  
@@ -27,6 +28,8 @@
 [TBD]
 
 **Escalation Path:**  
+-
 - [ ] Tier 1 complete (profile/credentials checks)  
 - [ ] Escalated to Tier 2 (Exchange/Autodiscover)  
 - [ ] Escalated to Tier 3 (SAML/MFA/identity provider)
+ 

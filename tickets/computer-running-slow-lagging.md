@@ -17,6 +17,7 @@
 **Environment:** Windows 10 desktop; corporate network.
 
 **Troubleshooting Steps Taken:**  
+-
 - [ ] Compared internal vs external network latency (ping tests)  
 - [ ] Checked Task Manager CPU/RAM/Disk usage and processes  
 - [ ] Ran malware scan or checked for runaway updates  
@@ -27,6 +28,8 @@
 [TBD]
 
 **Escalation Path:**  
+-
 - [ ] Tier 1 complete (resource & basic network checks)  
 - [ ] Escalated to Tier 2 (network/server)  
 - [ ] Escalated to Tier 3 (hardware upgrade/policy)
+ 
