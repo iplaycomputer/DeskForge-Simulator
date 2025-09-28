@@ -52,11 +52,12 @@ Reproduce a stuck print queue and practice clearing jobs and restarting the "spo
    docker exec print-queue cat /queue/processed.txt
    ```
 
-   ## Verification
-   ```powershell
+## Verification
+
+```powershell
    docker exec print-queue cat /queue/processed.txt
    # Expect: remaining job name present; queue stable
-   ```
+```
 
 ## Cleanup
 ```powershell

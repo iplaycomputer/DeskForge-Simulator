@@ -45,11 +45,12 @@ Use MailHog to practice diagnosing "client disconnected / prompting" symptoms.
 5) Verify in UI
    - Browse http://localhost:8025 and confirm the message is present.
 
-   ## Verification
-   ```powershell
+## Verification
+
+```powershell
    Invoke-WebRequest http://localhost:8025 -UseBasicParsing | Select-Object -ExpandProperty StatusCode
    # Expect: 200 (and message visible in UI)
-   ```
+```
 
 ## Cleanup
 ```powershell

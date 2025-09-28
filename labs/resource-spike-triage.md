@@ -41,11 +41,12 @@ Practice identifying and resolving resource spikes that cause slowness.
    # Expect CPU usage back to normal
    ```
 
-   ## Verification
-   ```bash
+## Verification
+
+```bash
    top -b -n 1 | head -n 20
    # Expect: CPU/Disk normalized; no stress-ng running
-   ```
+```
 
 ## Cleanup
 ```bash

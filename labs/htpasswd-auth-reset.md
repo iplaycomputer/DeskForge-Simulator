@@ -42,12 +42,13 @@ Simulate a credential reset and prove the fix with a protected endpoint.
    # Expect 200
    ```
 
-   ## Verification
-   ```powershell
+## Verification
+
+```powershell
    $pair = "user:newpass"; $b64 = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes($pair));
    Invoke-WebRequest http://localhost:8090/secure -UseBasicParsing -Headers @{ Authorization = "Basic $b64" } | Select-Object -ExpandProperty StatusCode
    # Expect: 200
-   ```
+```
 
 ## Cleanup
 ```powershell
