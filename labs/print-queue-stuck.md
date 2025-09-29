@@ -1,11 +1,11 @@
-# Lab: Print queue stuck (department-wide)
+﻿# Lab: Print queue stuck (department-wide)
 
 Reproduce a stuck print queue and practice clearing jobs and restarting the "spooler" safely.
 
-**Related Ticket:** /tickets/cannot-print-to-shared-printer.md  
-**Related KB:** /kb/printer-queue-clearing.md  
-**Related Scenario:** /scenarios/printer-queue-clearing.md  
-**Category:** Hardware  
+**Related Ticket:** /tickets/cannot-print-to-shared-printer.md
+**Related KB:** /kb/printer-queue-clearing.md
+**Related Scenario:** /scenarios/printer-queue-clearing.md
+**Category:** Hardware
 **Environment:** Docker Desktop (Windows/macOS) or Docker Engine (Linux)
 
 ## Objectives
@@ -27,7 +27,6 @@ Reproduce a stuck print queue and practice clearing jobs and restarting the "spo
        ```powershell
        docker compose -f .\labs\print-queue-stuck\assets\compose.yaml up -d
        ```
-
 
     - Bash
 
@@ -59,6 +58,7 @@ Reproduce a stuck print queue and practice clearing jobs and restarting the "spo
    docker exec print-queue sed -i '1d' /queue/jobs.txt
    docker start print-queue-consumer
    ```
+
 5) Verify
 
    ```powershell
@@ -72,7 +72,6 @@ Reproduce a stuck print queue and practice clearing jobs and restarting the "spo
    docker exec print-queue cat /queue/processed.txt
    # Expect: remaining job name present; queue stable
 ```
-
 
 ## Cleanup
 

@@ -1,4 +1,4 @@
-# Knowledge Base Index
+﻿# Knowledge Base Index
 
 Reusable solution docs derived from tickets and verified in labs.
 

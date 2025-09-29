@@ -1,4 +1,4 @@
-# Scenario: Account lockout and password reset
+﻿# Scenario: Account lockout and password reset
 
 - Related Ticket: /tickets/account-locked-out.md
 - Related KB: /kb/account-lockout-reset.md#resolution-steps

@@ -1,4 +1,4 @@
-# Ticket: Computer is running extremely slow / lagging
+﻿# Ticket: Computer is running extremely slow / lagging
 
 **Category:** Hardware
 **Priority:** Medium
@@ -24,7 +24,8 @@
 - [ ] Assessed disk health (HDD fragmentation/SMART)
 - [ ] Isolated network cause; escalate website performance to Web/DevOps if isolated
 
-**Resolution:**
+## Resolution
+
 [TBD]
 
 ## Escalation Path

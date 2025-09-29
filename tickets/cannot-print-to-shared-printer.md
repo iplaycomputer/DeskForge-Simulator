@@ -1,4 +1,4 @@
-# Ticket: Cannot print to shared Finance printer
+﻿# Ticket: Cannot print to shared Finance printer
 
 **Category:** Hardware
 **Priority:** Medium
@@ -16,7 +16,7 @@
 **Symptoms:** Print jobs stuck as Error/Spooling; device shows Ready with flashing status light.
 **Environment:** Windows clients printing via central print server.
 
-**Troubleshooting Steps Taken:**
+## Troubleshooting Steps Taken
 
 - [ ] Confirmed print server is running and reachable
 - [ ] Remotely checked client printer driver/port
@@ -24,10 +24,11 @@
 - [ ] Checked server print queue for large/stuck jobs
 - [ ] If department-wide, escalated to Tier 2 (Server Team)
 
-**Resolution:**
+## Resolution
+
 [TBD]
 
-**Escalation Path:**
+## Escalation Path
 
 - [ ] Tier 1 complete (client/queue verification)
 - [ ] Escalated to Tier 2 (server-side queue/driver)

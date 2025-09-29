@@ -1,4 +1,4 @@
-# Scenario: Workstation performance triage
+﻿# Scenario: Workstation performance triage
 
 - Related Ticket: /tickets/computer-running-slow-lagging.md
 - Related KB: /kb/workstation-performance-triage.md#resolution-steps

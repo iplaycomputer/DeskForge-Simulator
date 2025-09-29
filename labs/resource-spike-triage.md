@@ -1,4 +1,4 @@
-# Lab: Resource spike triage (CPU/Disk)
+﻿# Lab: Resource spike triage (CPU/Disk)
 
 Practice identifying and resolving resource spikes that cause slowness.
 

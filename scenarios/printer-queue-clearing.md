@@ -1,4 +1,4 @@
-# Scenario: Department-wide printer outage (queue clearing)
+﻿# Scenario: Department-wide printer outage (queue clearing)
 
 - Related Ticket: /tickets/cannot-print-to-shared-printer.md
 - Related KB: /kb/printer-queue-clearing.md#resolution-steps

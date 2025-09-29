@@ -1,4 +1,4 @@
-# Labs Catalog
+﻿# Labs Catalog
 
 Hands-on troubleshooting exercises. Use these to practice skills and validate KBs.
 

@@ -1,4 +1,4 @@
-# Scenario: Outlook reconnect after update
+﻿# Scenario: Outlook reconnect after update
 
 - Related Ticket: /tickets/outlook-disconnected-password-prompts.md
 - Related KB: /kb/outlook-reconnect-after-update.md#resolution-steps

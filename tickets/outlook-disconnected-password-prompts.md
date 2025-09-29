@@ -1,4 +1,4 @@
-# Ticket: Outlook disconnected and repeatedly prompting for password
+﻿# Ticket: Outlook disconnected and repeatedly prompting for password
 
 **Category:** Software
 **Priority:** Medium
@@ -13,7 +13,7 @@
 **System/Component:** Microsoft Outlook (Cached Mode), Exchange Server
 
 **Problem:** Outlook disconnects and repeatedly prompts for password after a company security update.
-**Symptoms:** Disconnected status; repeated password prompts; can’t send/receive recent emails.
+**Symptoms:** Disconnected status; repeated password prompts; canâ€™t send/receive recent emails.
 **Environment:** Laptop (potentially remote); VPN in use when offsite.
 
 ## Troubleshooting Steps Taken
@@ -24,7 +24,8 @@
 - [ ] Toggled Cached Exchange Mode
 - [ ] Created a new Outlook profile or cleared Credential Manager entries
 
-**Resolution:**
+## Resolution
+
 [TBD]
 
 ## Escalation Path

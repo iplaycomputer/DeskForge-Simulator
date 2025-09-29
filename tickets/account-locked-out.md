@@ -1,4 +1,4 @@
-# Ticket: Account locked out – cannot log in
+﻿# Ticket: Account locked out â€“ cannot log in
 
 **Category:** Account
 **Priority:** High
@@ -16,7 +16,7 @@
 **Symptoms:** Login attempts fail; account lockout message.
 **Environment:** Windows desktop joined to AD; remote services (email/VPN) affected.
 
-**Troubleshooting Steps Taken:**
+## Troubleshooting Steps Taken
 
 - [ ] Verified user identity via secondary info (DOB, employee ID)
 - [ ] Checked AD status for JDoe
@@ -24,10 +24,11 @@
 - [ ] If password expired, initiated reset or guided through SSPR
 - [ ] Instructed user to restart and attempt login on wired network
 
-**Resolution:**
+## Resolution
+
 [TBD]
 
-**Escalation Path:**
+## Escalation Path
 
 - [ ] Tier 1 complete (basic checks and unlock/reset)
 - [ ] Escalated to Tier 2 (e.g., repeated lockouts, MFA issues)

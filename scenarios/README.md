@@ -1,6 +1,6 @@
-# Scenarios Index
+﻿# Scenarios Index
 
-End-to-end flows that link Ticket → KB → Lab. Use scenarios to tell the story and define success criteria.
+End-to-end flows that link Ticket â†’ KB â†’ Lab. Use scenarios to tell the story and define success criteria.
 
 - Template: [000.scenario-template.md](./000.scenario-template.md)
 

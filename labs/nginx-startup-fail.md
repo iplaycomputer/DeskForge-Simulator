@@ -1,25 +1,27 @@
-# Lab: Nginx fails to start (config error)
+﻿# Lab: Nginx fails to start (config error)
 
 Make a broken web server boot again by fixing a one-word typo.
 
-**Related KB:** /kb/nginx-config-basics.md (optional)  
-**Category:** Software  
+**Related KB:** /kb/nginx-config-basics.md (optional)
+**Category:** Software
 **Environment:** Docker Desktop (Windows/macOS) or Docker Engine (Linux)
 
-**Owner:**  
-**Last Reviewed:**  
-**Next Review Due:**  
+## Owner
+
+## Last Reviewed
+
+## Next Review Due
 
 ## Why this matters (30 seconds)
 
-This is what real-life looks like: “my web page won’t load” and the container keeps restarting. Your job is to read the logs, spot the typo, make a tiny change, and prove the fix.
+This is what real-life looks like: â€œmy web page wonâ€™t loadâ€ and the container keeps restarting. Your job is to read the logs, spot the typo, make a tiny change, and prove the fix.
 
 ## Objectives
 
 - Diagnose a containerized Nginx startup failure
 - Fix a simple configuration error and verify success
 
-Time: ~10–15 min  •  Difficulty: Beginner
+Time: ~10â€“15 min  â€¢  Difficulty: Beginner
 
 ## Prerequisites (quick preflight)
 
@@ -30,14 +32,13 @@ Time: ~10–15 min  •  Difficulty: Beginner
     docker --version
     docker compose version
     ```
-  
+
   - Bash
 
   ```bash
     docker --version
     docker compose version
     ```
-  
 
 ## Steps
 
@@ -48,13 +49,12 @@ Time: ~10–15 min  •  Difficulty: Beginner
      ```powershell
      docker compose -f .\labs\nginx-startup-fail\assets\compose.yaml up -d
      ```
-  
+
    - Bash
 
      ```bash
      docker compose -f ./labs/nginx-startup-fail/assets/compose.yaml up -d
      ```
-  
 
 2) Observe the failure
    - Status
@@ -62,13 +62,12 @@ Time: ~10–15 min  •  Difficulty: Beginner
      ```powershell
      docker compose -f .\labs\nginx-startup-fail\assets\compose.yaml ps
      ```
-  
-   - Logs (look for “unknown directive” or “invalid”)
+
+   - Logs (look for â€œunknown directiveâ€ or â€œinvalidâ€)
 
      ```powershell
      docker compose -f .\labs\nginx-startup-fail\assets\compose.yaml logs nginx
      ```
-  
 
 3) Identify the issue
    - Open `labs/nginx-startup-fail/assets/nginx.conf`
@@ -84,7 +83,7 @@ Time: ~10–15 min  •  Difficulty: Beginner
 
 ## Verification (success criteria)
 
-- Browse <http://localhost:8080> and see “Nginx is up”
+- Browse <http://localhost:8080> and see â€œNginx is upâ€
 - Container health should go to `healthy` once the page is served
 - Or use a CLI check:
   - Check health status quickly
@@ -93,6 +92,7 @@ Time: ~10–15 min  •  Difficulty: Beginner
     docker compose -f .\labs\nginx-startup-fail\assets\compose.yaml ps
     # Expect: State shows "running (healthy)"
     ```
+
   - PowerShell
 
     ```powershell
@@ -107,11 +107,10 @@ Time: ~10–15 min  •  Difficulty: Beginner
     # Expect: 200
     ```
 
+## Hints (if youâ€™re stuck)
 
-## Hints (if you’re stuck)
-
-- Re-run logs and read the first error: it usually tells you exactly what Nginx didn’t understand.
-- If the fix doesn’t apply, make sure you recreated the container with `--force-recreate`.
+- Re-run logs and read the first error: it usually tells you exactly what Nginx didnâ€™t understand.
+- If the fix doesnâ€™t apply, make sure you recreated the container with `--force-recreate`.
 - If port 8080 is busy, edit `compose.yaml` and change `8080:80` to another free port (e.g., `8081:80`).
 - On Windows, if you see file permission issues, temporarily remove `:ro` from the volume lines to test.
 
@@ -119,7 +118,7 @@ Time: ~10–15 min  •  Difficulty: Beginner
 
 - Estimated time: 10 minutes
 - Common pitfalls: wrong compose path; forgetting `--force-recreate` after config changes
-- Optional next step: write a KB titled “Nginx: fix startup syntax errors” linking this lab
+- Optional next step: write a KB titled â€œNginx: fix startup syntax errorsâ€ linking this lab
 
 ## Bonus challenges (optional)
 
@@ -132,4 +131,3 @@ Time: ~10–15 min  •  Difficulty: Beginner
 ```powershell
 docker compose -f .\labs\nginx-startup-fail\assets\compose.yaml down -v
 ```
-
