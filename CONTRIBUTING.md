@@ -236,6 +236,28 @@ Folder guide: see [scenarios/README.md](scenarios/README.md)
 - Be explicit about pass/fail checks so learners can self-verify.
 - Prefer deep links to existing sections instead of rewriting steps, e.g.: `/kb/...#resolution-steps` and `/labs/...#verification`.
 
+## Local Lint (Optional)
+
+Before you commit, you can run the Markdown linter locally to catch spacing/format issues early:
+
+- Windows PowerShell:
+
+```powershell
+npx -y markdownlint-cli2
+```
+
+Optional Git hook (runs locally, does not affect CI):
+
+1. Create a file at `.git/hooks/pre-commit` with the following and make sure it’s executable in your Git environment:
+
+```bash
+#!/usr/bin/env bash
+set -euo pipefail
+npx -y markdownlint-cli2
+```
+
+1. Save. The hook will block commits that fail linting. You can always run the linter manually if you prefer.
+
 ## Roadmap Note
 
 Public ticket submissions are not yet enabled. If a central osTicket instance is launched, it will likely allow public users to submit tickets via the client portal only, with the admin/staff panel restricted to maintainers.
