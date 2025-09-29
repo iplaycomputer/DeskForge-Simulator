@@ -14,4 +14,3 @@ Conventions:
 
 - Name scenarios clearly (e.g., `printer-spooler-end-to-end.md`).
 - Link artifacts with relative paths; avoid external private endpoints.
-
