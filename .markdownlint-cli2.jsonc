@@ -9,6 +9,8 @@
     "**/node_modules/**",
     ".git/**",
     // Loosen restrictions only for repo meta/docs under .github (e.g., PR template)
-    ".github/**/*.md"
+    ".github/**/*.md",
+    // Ignore the front-page README to preserve emojis/styling
+    "README.md"
   ]
 }

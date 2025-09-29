@@ -1,0 +1,5 @@
+# Ignore the front-page README to preserve emojis and custom formatting
+README.md
+
+# Keep ignoring .github meta docs for local editor, too (CLI2 already ignores)
+.github/**/*.md
