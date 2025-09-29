@@ -36,6 +36,7 @@ Whether you’re completely new to IT, sharpening your troubleshooting skills, o
 ## 🔰 Quick Start: Contribute in 5 Minutes
 
 1. **Fork** this repository and clone it to your machine.  
+
    ```bash
    git clone https://github.com/<your-username>/DeskForge-Simulator.git
    cd DeskForge-Simulator
@@ -43,27 +44,31 @@ Whether you’re completely new to IT, sharpening your troubleshooting skills, o
 
 2. **Create a ticket** using the template in `/tickets/`.  
    Save it as a new Markdown file, e.g.:  
-   ```
+
+   ```text
    /tickets/printer-issue.md
    ```
 
 3. **Commit and push** your changes.  
+
    ```bash
    git add tickets/printer-issue.md
    git commit -m "Add sample printer ticket"
    git push origin main
    ```
+
 4. **Open a Pull Request** to share your contribution! 🎉
 
 👉 That’s it — you’ve added your first simulated helpdesk ticket.  
 Check out `CONTRIBUTING.md` if you want to go deeper (KB articles, labs, scenarios).
 
-### **Note on Real Troubleshooting**:
+### **Note on Real Troubleshooting**
 
 You’re welcome to post **real tech support questions** (e.g., “my printer won’t connect” or “Windows update keeps failing”) in GitHub Discussions.  
 *This community will treat them as learning scenarios.*  
 
 However:  
+
 - This project is for **education only** — responses are not official IT support. This means no guarantees of fixes and we are not responsible for people's devices.
 - Please **do not share sensitive information** (personal IPs, passwords, or private configs).  
 - Use advice at your own discretion.  
@@ -75,9 +80,9 @@ Think of it as a safe space to learn troubleshooting together, not a replacement
 - Follow [lamp-osticket-setup.md](docs/lamp-osticket-setup.md) to set up an optional **local osTicket instance** on Ubuntu 24.04 (for realism).  
 - Or start contributing right away using **GitHub Discussions** and Markdown files in `/tickets/`, `/kb/`, and `/labs/`.  
 - See the [CONTRIBUTING.md](CONTRIBUTING.md) guide for templates and workflow details.  
- - For end-to-end flows, see the `/scenarios/` folder and use the template at `/scenarios/000.scenario-template.md`.
- - Browse available labs in the [Labs Catalog](labs/README.md).
-   - Explore folder guides: [Tickets](tickets/README.md) · [KB](kb/README.md) · [Scenarios](scenarios/README.md)
+- For end-to-end flows, see the `/scenarios/` folder and use the template at `/scenarios/000.scenario-template.md`.
+- Browse available labs in the [Labs Catalog](labs/README.md).
+- Explore folder guides: [Tickets](tickets/README.md) · [KB](kb/README.md) · [Scenarios](scenarios/README.md)
 
 ## ❤️ Community & Contributions  
 
@@ -90,10 +95,10 @@ DeskForge-Simulator is **community-driven**. We welcome:
 
 Check out the [CONTRIBUTING.md](CONTRIBUTING.md) guide and join the conversation in [GitHub Discussions](https://github.com/iplaycomputer/DeskForge-Simulator/discussions).  
 
-
 ## 📫 Questions & Support  
 
 Use [GitHub Discussions](https://github.com/iplaycomputer/DeskForge-Simulator/discussions) to:  
+
 - Post tickets (simulated issues)  
 - Draft KB articles  
 - Share lab walkthroughs  

@@ -17,7 +17,6 @@
 **Environment:** Windows clients printing via central print server.
 
 **Troubleshooting Steps Taken:**
--
 
 - [ ] Confirmed print server is running and reachable
 - [ ] Remotely checked client printer driver/port
