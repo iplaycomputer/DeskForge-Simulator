@@ -9,6 +9,7 @@ Reusable solution docs derived from tickets and verified in labs.
   - Cite vendor docs in a References section.
 
 Conventions:
+
 - Filename in kebab-case (e.g., `printer-spooler-restart.md`).
 - Include a short metadata block (category, environment, owner).
 - Link back to the originating ticket and any validating lab.
