@@ -17,7 +17,7 @@ Conventions:
 
 Examples:
 
-- [Account locked out â€“ cannot log in](./account-locked-out.md)
+- [Account locked out – cannot log in](./account-locked-out.md)
 - [Cannot print to shared Finance printer](./cannot-print-to-shared-printer.md)
 - [Outlook disconnected and password prompts](./outlook-disconnected-password-prompts.md)
 - [Computer is running extremely slow / lagging](./computer-running-slow-lagging.md)
