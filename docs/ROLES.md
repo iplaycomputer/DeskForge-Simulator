@@ -15,7 +15,7 @@ Tip: In KBs and Labs, use metadata fields like Owner, Last Reviewed, Next Review
 - Tier 1 (Frontline)
   - Scope: Single-user issues, basic checks, standard fixes.
   - Typical actions: Verify problem, collect environment, reproduce, apply known fixes.
-  - Timebox: 10â€“20 minutes before escalating.
+  - Timebox: 10–20 minutes before escalating.
 - Tier 2 (Specialist)
   - Scope: Drivers, services, complex app configs, small network issues.
   - Typical actions: Logs review, driver/config changes, targeted scripts.

@@ -46,5 +46,5 @@ Example block for KBs:
 
 ## Keep It Practical
 
-- No dashboards requiredâ€”just fill fields in Markdown.
+- No dashboards required—just fill fields in Markdown.
 - Prefer consistency over precision.

@@ -1,4 +1,4 @@
-﻿# Ticket: Account locked out â€“ cannot log in
+﻿# Ticket: Account locked out – cannot log in
 
 **Category:** Account
 **Priority:** High

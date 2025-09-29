@@ -8,7 +8,7 @@ This repo simulates real helpdesk workflows using Markdown contributions. Agents
   - Tickets (`/tickets/`): user-reported issues
   - Knowledge Base (`/kb/`): solution docs derived from tickets
   - Labs (`/labs/`): hands-on practice exercises
-  - Scenarios (`/scenarios/`): end-to-end flows linking ticket â†’ KB â†’ lab
+  - Scenarios (`/scenarios/`): end-to-end flows linking ticket → KB → lab
 - Use templates in each folder (`000.*-template.md`).
 
 ## Key Files
@@ -21,7 +21,7 @@ This repo simulates real helpdesk workflows using Markdown contributions. Agents
 
 ## Authoring Patterns
 
-- Follow CompTIA A+ 6-step model: Identify â†’ Theory â†’ Test â†’ Plan/Implement â†’ Verify â†’ Document.
+- Follow CompTIA A+ 6-step model: Identify → Theory → Test → Plan/Implement → Verify → Document.
 - Keep language plain and steps reproducible. Include environment details (OS/version), verification, and escalation path.
 - Link artifacts with relative paths (e.g., `/tickets/printer-failure.md` in KB/Lab/Scenario).
 - Use checklists for Tier 1/2/3 completion; mark what you actually did.
@@ -49,8 +49,8 @@ This repo simulates real helpdesk workflows using Markdown contributions. Agents
 
 ## What NOT to do
 
-- Donâ€™t invent infrastructure or public endpoints; this repo is markdown-only.
-- Donâ€™t add personal IPs or credentials.
+- Don’t invent infrastructure or public endpoints; this repo is markdown-only.
+- Don’t add personal IPs or credentials.
 
 ---
 Clarifications welcome: if any folder structure or template changes, update this file to match.

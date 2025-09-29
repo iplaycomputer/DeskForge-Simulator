@@ -14,14 +14,14 @@ Make a broken web server boot again by fixing a one-word typo.
 
 ## Why this matters (30 seconds)
 
-This is what real-life looks like: â€œmy web page wonâ€™t loadâ€ and the container keeps restarting. Your job is to read the logs, spot the typo, make a tiny change, and prove the fix.
+This is what real-life looks like: “my web page won’t load” and the container keeps restarting. Your job is to read the logs, spot the typo, make a tiny change, and prove the fix.
 
 ## Objectives
 
 - Diagnose a containerized Nginx startup failure
 - Fix a simple configuration error and verify success
 
-Time: ~10â€“15 min  â€¢  Difficulty: Beginner
+Time: ~10–15 min  •  Difficulty: Beginner
 
 ## Prerequisites (quick preflight)
 
@@ -42,48 +42,49 @@ Time: ~10â€“15 min  â€¢  Difficulty: Beginner
 
 ## Steps
 
-1) Start the broken stack (from repo root)
+1. Start the broken stack (from repo root)
 
-   - PowerShell
+    PowerShell:
 
-     ```powershell
-     docker compose -f .\labs\nginx-startup-fail\assets\compose.yaml up -d
-     ```
+    ```powershell
+    docker compose -f .\labs\nginx-startup-fail\assets\compose.yaml up -d
+    ```
 
-   - Bash
+    Bash:
 
-     ```bash
-     docker compose -f ./labs/nginx-startup-fail/assets/compose.yaml up -d
-     ```
+    ```bash
+    docker compose -f ./labs/nginx-startup-fail/assets/compose.yaml up -d
+    ```
 
-2) Observe the failure
-   - Status
+2. Observe the failure
 
-     ```powershell
-     docker compose -f .\labs\nginx-startup-fail\assets\compose.yaml ps
-     ```
+    Status:
 
-   - Logs (look for â€œunknown directiveâ€ or â€œinvalidâ€)
+    ```powershell
+    docker compose -f .\labs\nginx-startup-fail\assets\compose.yaml ps
+    ```
 
-     ```powershell
-     docker compose -f .\labs\nginx-startup-fail\assets\compose.yaml logs nginx
-     ```
+    Logs (look for "unknown directive" or "invalid"):
 
-3) Identify the issue
-   - Open `labs/nginx-startup-fail/assets/nginx.conf`
-   - Find the misspelled directive and fix the typo
+    ```powershell
+    docker compose -f .\labs\nginx-startup-fail\assets\compose.yaml logs nginx
+    ```
 
-4) Fix and retry
-   - Change `roooot` to `root` in nginx.conf
-   - Recreate the container
+3. Identify the issue
 
-     ```powershell
-     docker compose -f .\labs\nginx-startup-fail\assets\compose.yaml up -d --force-recreate
-     ```
+  Open `labs/nginx-startup-fail/assets/nginx.conf` and find the misspelled directive. Fix the typo.
+
+1. Fix and retry
+
+    Change `roooot` to `root` in nginx.conf, then recreate the container:
+
+    ```powershell
+    docker compose -f .\labs\nginx-startup-fail\assets\compose.yaml up -d --force-recreate
+    ```
 
 ## Verification (success criteria)
 
-- Browse <http://localhost:8080> and see â€œNginx is upâ€
+- Browse <http://localhost:8080> and see “Nginx is up”
 - Container health should go to `healthy` once the page is served
 - Or use a CLI check:
   - Check health status quickly
@@ -107,10 +108,10 @@ Time: ~10â€“15 min  â€¢  Difficulty: Beginner
     # Expect: 200
     ```
 
-## Hints (if youâ€™re stuck)
+## Hints (if you’re stuck)
 
-- Re-run logs and read the first error: it usually tells you exactly what Nginx didnâ€™t understand.
-- If the fix doesnâ€™t apply, make sure you recreated the container with `--force-recreate`.
+- Re-run logs and read the first error: it usually tells you exactly what Nginx didn’t understand.
+- If the fix doesn’t apply, make sure you recreated the container with `--force-recreate`.
 - If port 8080 is busy, edit `compose.yaml` and change `8080:80` to another free port (e.g., `8081:80`).
 - On Windows, if you see file permission issues, temporarily remove `:ro` from the volume lines to test.
 
@@ -118,7 +119,7 @@ Time: ~10â€“15 min  â€¢  Difficulty: Beginner
 
 - Estimated time: 10 minutes
 - Common pitfalls: wrong compose path; forgetting `--force-recreate` after config changes
-- Optional next step: write a KB titled â€œNginx: fix startup syntax errorsâ€ linking this lab
+- Optional next step: write a KB titled “Nginx: fix startup syntax errors” linking this lab
 
 ## Bonus challenges (optional)
 
