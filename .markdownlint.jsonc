@@ -10,5 +10,7 @@
   // Allow non-heading first lines (some files are not articles)
   "MD041": false,
   // Temporarily disable strict fragment validation to reduce false positives on deep-links
-  "MD051": false
+  "MD051": false,
+  // Prefer incrementing ordered lists (1/2/3) to avoid renumbering churn
+  "MD029": { "style": "ordered" }
 }
