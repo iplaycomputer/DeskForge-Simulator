@@ -1,23 +1,23 @@
-﻿# Deploying osTicket
+# Deploying osTicket
 
-This guide explains how to set up **osTicket v1.18.1**, a free helpdesk ticketing system, on **Ubuntu 24.04 Desktop** using **VirtualBox**. Itâ€™s written for beginners to help you get osTicket running step-by-step. Sensitive details (like passwords or IP addresses) are replaced with placeholders to keep things safe.
+This guide explains how to set up **osTicket v1.18.1**, a free helpdesk ticketing system, on **Ubuntu 24.04 Desktop** using **VirtualBox**. It’s written for beginners to help you get osTicket running step-by-step. Sensitive details (like passwords or IP addresses) are replaced with placeholders to keep things safe.
 
-**Warning**: This setup is for testing or development. Do **not** use it in production without adding HTTPS (SSL), a firewall, and other security measures (see â€œWhat to Do Nextâ€ section).
+**Warning**: This setup is for testing or development. Do **not** use it in production without adding HTTPS (SSL), a firewall, and other security measures (see “What to Do Next” section).
 
-## What Youâ€™ll Need
+## What You’ll Need
 
 - A computer with **Oracle VirtualBox** installed (download from [virtualbox.org](https://www.virtualbox.org)).
 - The **Ubuntu 24.04 Desktop ISO** file (get it from [ubuntu.com](https://ubuntu.com)).
-- A basic understanding of how to use a computer terminal (weâ€™ll explain commands clearly!).
-- About 1â€“2 hours to follow along.
+- A basic understanding of how to use a computer terminal (we’ll explain commands clearly!).
+- About 1–2 hours to follow along.
 
 ## Using Placeholders
 
 This guide uses placeholders for sensitive information:
 
 - Replace `YOUR_DB_PASSWORD` with a strong password (e.g., generate one with `openssl rand -base64 12` in the terminal).
-- Replace `<vm-ip>` with your VMâ€™s IP address (find it by running `ip addr show` in the terminal and looking for the IP under `inet`, usually starting with `192.168.`).
-- Replace `osticket-server.localdomain` with your VMâ€™s hostname or IP if needed.
+- Replace `<vm-ip>` with your VM’s IP address (find it by running `ip addr show` in the terminal and looking for the IP under `inet`, usually starting with `192.168.`).
+- Replace `osticket-server.localdomain` with your VM’s hostname or IP if needed.
 
 ## What This Guide Does
 
@@ -25,7 +25,7 @@ This guide will help you:
 
 - Create a virtual machine (VM) in VirtualBox.
 - Install Ubuntu 24.04 Desktop on the VM.
-- Set up a web server, database, and PHP (the â€œLAMP stackâ€).
+- Set up a web server, database, and PHP (the “LAMP stack”).
 - Install osTicket v1.18.1 and make it secure.
 - Check that everything works.
 
@@ -46,14 +46,14 @@ This guide will help you:
 ## Set Up Your Virtual Machine
 
 1. Open VirtualBox and click **New** to create a virtual machine.
-2. Name it (e.g., â€œosTicket-VMâ€).
+2. Name it (e.g., “osTicket-VM”).
 3. Choose **Linux** as the type and **Ubuntu (64-bit)** as the version.
 4. Set these settings:
    - **CPUs**: 2
    - **RAM**: 4 GB (or 8 GB if your computer has enough memory)
    - **Disk**: 40 GB (this gives space for tickets and logs)
-   - **Network**: Choose â€œBridged Adapterâ€ so the VM can connect to your network.
-   - **VT-x**: Enable in your computerâ€™s BIOS if itâ€™s not already on (check VirtualBoxâ€™s error messages if it fails).
+   - **Network**: Choose “Bridged Adapter” so the VM can connect to your network.
+   - **VT-x**: Enable in your computer’s BIOS if it’s not already on (check VirtualBox’s error messages if it fails).
 5. Select the Ubuntu 24.04 Desktop ISO file when prompted and start the VM.
 
 ## Install Ubuntu
@@ -64,7 +64,7 @@ This guide will help you:
 
 ## Set Up the Web Server and Database
 
-1. Open the **Terminal** (search for it in Ubuntuâ€™s menu or press `Ctrl + Alt + T`).
+1. Open the **Terminal** (search for it in Ubuntu’s menu or press `Ctrl + Alt + T`).
 2. Update your system and install Apache (web server), MySQL (database), PHP, and required tools:
 
 ```bash
@@ -75,16 +75,16 @@ sudo systemctl enable --now apache2 mysql
 
 - **What this does**: Updates your system, installs the web server, database, and PHP, then starts them.
 
-3. Check that Apache and MySQL are running:
+1. Check that Apache and MySQL are running:
 
 ```bash
 systemctl status apache2
 systemctl status mysql
 ```
 
-- **What to look for**: You should see â€œactive (running)â€ for both. Press `Ctrl + C` to exit each status check.
+- **What to look for**: You should see “active (running)” for both. Press `Ctrl + C` to exit each status check.
 
-4. Confirm PHP is installed (version should be 7.2 or higher):
+1. Confirm PHP is installed (version should be 7.2 or higher):
 
 ```bash
 php -v
@@ -101,12 +101,12 @@ sudo mysql_secure_installation
 
 - Follow the prompts:
   - Keep the default `auth_socket` for local root access (just press Enter).
-  - Remove anonymous users (say â€œYesâ€).
-  - Disallow remote root login (say â€œYesâ€).
-  - Drop the test database (say â€œYesâ€).
-  - Reload privileges (say â€œYesâ€).
+  - Remove anonymous users (say “Yes”).
+  - Disallow remote root login (say “Yes”).
+  - Drop the test database (say “Yes”).
+  - Reload privileges (say “Yes”).
 
-2. **Create a database and user for osTicket**:
+1. **Create a database and user for osTicket**:
    - Log in to MySQL:
 
 ```bash
@@ -128,7 +128,7 @@ FLUSH PRIVILEGES;
 EXIT;
 ```
 
-3. Verify MySQL version and authentication plugin:
+1. Verify MySQL version and authentication plugin:
 
 ```sql
 SELECT VERSION();
@@ -139,8 +139,8 @@ SELECT VERSION();
 ## Install osTicket Files
 
 1. Download osTicket v1.18.1 from [GitHub](https://github.com/osTicket/osTicket/releases/tag/v1.18.1). Save the ZIP file to your VM (e.g., in `/tmp`).
-2. If the ZIP file doesnâ€™t work (e.g., corrupt), download it again.
-3. Extract the ZIP and copy the `upload/` folder contents to the web serverâ€™s directory:
+2. If the ZIP file doesn’t work (e.g., corrupt), download it again.
+3. Extract the ZIP and copy the `upload/` folder contents to the web server’s directory:
 
 ```bash
 sudo cp -r /tmp/upload/* /var/www/html/osticket/
@@ -152,7 +152,7 @@ sudo cp -r /tmp/upload/* /var/www/html/osticket/
 sudo mv /tmp/upload /var/www/html/osticket
 ```
 
-4. Set the correct ownership so the web server can access the files:
+1. Set the correct ownership so the web server can access the files:
 
 ```bash
 sudo chown -R www-data:www-data /var/www/html/osticket
@@ -167,7 +167,7 @@ sudo chown -R www-data:www-data /var/www/html/osticket
 sudo nano /etc/apache2/sites-available/osticket.conf
 ```
 
-- Add this content (replace `osticket-server.localdomain` with your VMâ€™s hostname or IP):
+- Add this content (replace `osticket-server.localdomain` with your VM’s hostname or IP):
 
 ```apache
 <VirtualHost *:80>
@@ -185,7 +185,7 @@ sudo nano /etc/apache2/sites-available/osticket.conf
 
 - Save and exit (`Ctrl + O`, Enter, `Ctrl + X`).
 
-2. Enable the site and URL rewriting:
+1. Enable the site and URL rewriting:
 
 ```bash
 sudo a2ensite osticket.conf
@@ -194,7 +194,7 @@ sudo systemctl daemon-reload
 sudo systemctl reload apache2
 ```
 
-3. Check that the configuration is correct:
+1. Check that the configuration is correct:
 
 ```bash
 sudo apache2ctl configtest
@@ -204,7 +204,7 @@ sudo apache2ctl configtest
 
 ## Run the osTicket Web Installer
 
-1. Open a web browser on the VM (or your host computer) and go to `http://<vm-ip>/osticket/setup/` (replace `<vm-ip>` with your VMâ€™s IP address, found via `ip addr show` in the terminal).
+1. Open a web browser on the VM (or your host computer) and go to `http://<vm-ip>/osticket/setup/` (replace `<vm-ip>` with your VM’s IP address, found via `ip addr show` in the terminal).
 2. You should see the osTicket setup page. If not, check that Apache is running (`systemctl status apache2`).
 3. Fill in the database details:
    - **Hostname**: `localhost`
@@ -227,14 +227,14 @@ sudo apt install php-apcu
 sudo rm -rf /var/www/html/osticket/setup/
 ```
 
-3. Lock down the config file so only the web server can read it:
+1. Lock down the config file so only the web server can read it:
 
 ```bash
 sudo chmod 0444 /var/www/html/osticket/include/ost-config.php
 sudo chown root:www-data /var/www/html/osticket/include/ost-config.php
 ```
 
-4. Double-check file permissions:
+1. Double-check file permissions:
 
 ```bash
 ls -l /var/www/html/osticket/include/ost-config.php
@@ -263,7 +263,7 @@ SHOW TABLES;
 
 - You should see a list of tables (e.g., `ost_ticket`, `ost_user`).
 
-4. Check for insecure files in the web directory (this should return nothing):
+1. Check for insecure files in the web directory (this should return nothing):
 
 ```bash
 sudo find /var/www/html/osticket -type f -perm -o=w -ls
@@ -272,22 +272,22 @@ sudo find /var/www/html/osticket -type d -perm -o=w -ls
 
 ## Troubleshooting Common Issues
 
-- **Corrupt ZIP file**: If the osTicket ZIP doesnâ€™t extract, it might have downloaded incorrectly. Re-download from [GitHub](https://github.com/osTicket/osTicket/releases/tag/v1.18.1).
-- **MySQL shows `->` prompt**: This means you didnâ€™t finish a command. Type `;` to complete it or `\c` to cancel.
+- **Corrupt ZIP file**: If the osTicket ZIP doesn’t extract, it might have downloaded incorrectly. Re-download from [GitHub](https://github.com/osTicket/osTicket/releases/tag/v1.18.1).
+- **MySQL shows `->` prompt**: This means you didn’t finish a command. Type `;` to complete it or `\c` to cancel.
 - **ERROR 1064 in MySQL**: This happens if you press Enter too soon or use wrong syntax. Check your command and verify MySQL version:
 
 ```sql
 SELECT VERSION();
 ```
 
-- **ERROR 1410 (GRANT)**: This means the user doesnâ€™t exist or youâ€™re not logged in as root. Use `sudo mysql` to log in as root.
+- **ERROR 1410 (GRANT)**: This means the user doesn’t exist or you’re not logged in as root. Use `sudo mysql` to log in as root.
 
 ## What to Do Next
 
 **Important**: This setup is for testing only. For production, you must add security measures like HTTPS and a firewall to protect your osTicket instance.
 
 - Set up an email account for osTicket to send notifications (use a custom domain and a service like Gmail to avoid spam issues).
-- Add HTTPS for security using Letâ€™s Encrypt:
+- Add HTTPS for security using Let’s Encrypt:
 
 ```bash
 sudo apt install certbot python3-certbot-apache
@@ -320,4 +320,3 @@ mysqldump -u osticketuser -p osticket > /backup/osticket_db_$(date +%F).sql
 ```bash
 sudo apt update && sudo apt upgrade
 ```
-
