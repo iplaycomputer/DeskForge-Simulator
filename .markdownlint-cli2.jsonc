@@ -1,6 +1,14 @@
 {
   // Inherit rules from .markdownlint.jsonc and set default globs
-  "config": ".markdownlint.jsonc",
+  "config": {
+    // Extend the base markdownlint rules from repo root
+    "extends": ".markdownlint.jsonc"
+  },
   "globs": ["**/*.md"],
-  "ignores": ["**/node_modules/**", ".git/**"]
+  "ignores": [
+    "**/node_modules/**",
+    ".git/**",
+    // Loosen restrictions only for repo meta/docs under .github (e.g., PR template)
+    ".github/**/*.md"
+  ]
 }
